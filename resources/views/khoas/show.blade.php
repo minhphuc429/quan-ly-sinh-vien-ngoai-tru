@@ -1,4 +1,4 @@
-<form action="{{ route('sinhviens.destroy', $sinhvien->id) }}" method="POST">
+<form action="{{ route('khoas.destroy', $khoa->id) }}" method="POST">
 	{{ method_field('DELETE') }}
 	{{ csrf_field() }}
 	<button type="submit" class="btn btn-danger">Delete</button>

@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 		<div class="table-responsive">
 			<table class="table table-hover table-bordered">
 				<thead>
@@ -47,8 +52,8 @@
 					<td>{{ $sinhvien->DienThoai }}</td>
 					<td>{{ $sinhvien->Email }}</td>
 					<td>
-					<a href="{{ route('sinhviens.show', $sinhvien->id) }}" class="btn btn-info">View Task</a>
-        			<a href="{{ route('sinhviens.edit', $sinhvien->id) }}" class="btn btn-primary">Edit Task</a>
+						<a href="{{ route('sinhviens.show', $sinhvien->id) }}" class="btn btn-info">View Task</a>
+	        			<a href="{{ route('sinhviens.edit', $sinhvien->id) }}" class="btn btn-primary">Edit Task</a>
         			</td>
 				</tr>
 				@endforeach

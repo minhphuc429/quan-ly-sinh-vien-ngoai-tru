@@ -16,7 +16,7 @@ class CreateSinhViensTable extends Migration
         Schema::create('sinh_viens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('TenSv');
-            $table->string('IDSV');
+            $table->string('IDSV')->unique();
             $table->boolean('GioiTinh');
             $table->date('NgaySinh');
             /*$table->string('DanToc')->nullable();*/
@@ -28,8 +28,8 @@ class CreateSinhViensTable extends Migration
             $table->string('Nganh');
             $table->string('Bac');*/
             $table->string('Lop');
-            $table->string('DienThoai')->nullable();
-            $table->string('Email')->nullable();
+            $table->string('DienThoai')->nullable()->unique();
+            $table->string('Email')->nullable()->unique();
             
             $table->timestamps();
             $table->softDeletes();

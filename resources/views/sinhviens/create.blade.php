@@ -6,16 +6,29 @@
 @endsection
 
 @section('content')
-
-				<form class="form-horizontal" action="{{ url('sinhviens') }}" method="POST" role="form"><input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<legend>Thông tin sinh viên</legend>
+			@if (count($errors) > 0)
+			    <div class="alert alert-danger">
+			        <ul class="fa-ul">
+			            @foreach ($errors->all() as $error)
+			                <li><i class="fa-li fa fa-chevron-circle-right"></i>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+				<form class="form-horizontal" action="{{ url('sinhviens') }}" method="POST" role="form">
+					
+					{{ csrf_field() }}
+					
+					<div class="form-group">
+						<legend>Thông tin sinh viên</legend>
+					</div>					
 
 					<div class="form-group">
 						<label for="tensv" class="col-md-2 control-label">Tên Sinh Viên</label>
 
 						<div class="col-md-10">
 							<input type="text" class="form-control" id="tensv" name="tensv" placeholder="Nguyễn Minh Phúc">
-						</div>		
+						</div>
 					</div>
 
 					<div class="form-group">
