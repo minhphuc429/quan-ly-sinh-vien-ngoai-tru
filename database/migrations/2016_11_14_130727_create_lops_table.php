@@ -18,7 +18,7 @@ class CreateLopsTable extends Migration
             $table->string('MaLop');
             $table->string('TenLop');
             $table->string('MaKhoa');
-            
+
             $table->timestamps();
         });
     }

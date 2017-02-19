@@ -30,7 +30,7 @@ class CreateSinhViensTable extends Migration
             $table->string('Lop');
             $table->string('DienThoai')->nullable()->unique();
             $table->string('Email')->nullable()->unique();
-            
+
             $table->timestamps();
             $table->softDeletes();
         });

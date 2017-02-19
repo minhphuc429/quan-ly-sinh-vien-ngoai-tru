@@ -33,53 +33,53 @@ class SinhVienController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $rules = [
-            'tensv'    => 'required|max:255',
-            'idsv'     => 'required',
+            'tensv' => 'required|max:255',
+            'idsv' => 'required',
             'gioitinh' => 'required',
             'ngaysinh' => 'required',
-            'diachi'   => 'required',
-            'lop'      => 'required',
-            'sdt'      => 'required',
-            'email'    => 'required',
+            'diachi' => 'required',
+            'lop' => 'required',
+            'sdt' => 'required',
+            'email' => 'required',
         ];
 
         $messages = [
-            'tensv.required'    => 'Chưa nhập tên',
-            'idsv.required'     => 'Chưa nhập ID sinh viên',
+            'tensv.required' => 'Chưa nhập tên',
+            'idsv.required' => 'Chưa nhập ID sinh viên',
             'gioitinh.required' => 'Chưa chọn giới tính',
             'ngaysinh.required' => 'Chưa nhập ngày sinh',
-            'diachi.required'   => 'Chưa nhập địa chỉ',
-            'lop.required'      => 'Chưa nhập lớp',
-            'sdt.required'      => 'Chưa nhập SĐT',
-            'email.required'    => 'Chưa nhập email',
+            'diachi.required' => 'Chưa nhập địa chỉ',
+            'lop.required' => 'Chưa nhập lớp',
+            'sdt.required' => 'Chưa nhập SĐT',
+            'email.required' => 'Chưa nhập email',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
             return redirect(route('sinhviens.create'))
-                    ->withErrors($validator)
-                    ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $date                = Carbon::createFromFormat('d/m/Y', $request->ngaysinh);
-        
-        $sinhvien            = new SinhVien;
-        
-        $sinhvien->TenSv     = $request->tensv;
-        $sinhvien->IDSV      = $request->idsv;
-        $sinhvien->GioiTinh  = $request->gioitinh;
-        $sinhvien->NgaySinh  = $date->toDateString();
-        $sinhvien->DiaChi    = $request->diachi;
-        $sinhvien->Lop       = $request->lop;
+        $date = Carbon::createFromFormat('d/m/Y', $request->ngaysinh);
+
+        $sinhvien = new SinhVien;
+
+        $sinhvien->TenSv = $request->tensv;
+        $sinhvien->IDSV = $request->idsv;
+        $sinhvien->GioiTinh = $request->gioitinh;
+        $sinhvien->NgaySinh = $date->toDateString();
+        $sinhvien->DiaChi = $request->diachi;
+        $sinhvien->Lop = $request->lop;
         $sinhvien->DienThoai = $request->sdt;
-        $sinhvien->Email     = $request->email;
+        $sinhvien->Email = $request->email;
         $sinhvien->save();
 
         return redirect('sinhviens')->with('status', 'Thêm Thông Tin Sinh Viên Thành Công');
@@ -88,7 +88,7 @@ class SinhVienController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -100,7 +100,7 @@ class SinhVienController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -112,54 +112,54 @@ class SinhVienController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $rules = [
-            'tensv'    => 'required|max:255',
-            'idsv'     => 'required',
+            'tensv' => 'required|max:255',
+            'idsv' => 'required',
             'gioitinh' => 'required',
             'ngaysinh' => 'required',
-            'diachi'   => 'required',
-            'lop'      => 'required',
-            'sdt'      => 'required',
-            'email'    => 'required',
+            'diachi' => 'required',
+            'lop' => 'required',
+            'sdt' => 'required',
+            'email' => 'required',
         ];
 
         $messages = [
-            'tensv.required'    => 'Chưa nhập tên',
-            'idsv.required'     => 'Chưa nhập ID sinh viên',
+            'tensv.required' => 'Chưa nhập tên',
+            'idsv.required' => 'Chưa nhập ID sinh viên',
             'gioitinh.required' => 'Chưa chọn giới tính',
             'ngaysinh.required' => 'Chưa nhập ngày sinh',
-            'diachi.required'   => 'Chưa nhập địa chỉ',
-            'lop.required'      => 'Chưa nhập lớp',
-            'sdt.required'      => 'Chưa nhập SĐT',
-            'email.required'    => 'Chưa nhập email',
+            'diachi.required' => 'Chưa nhập địa chỉ',
+            'lop.required' => 'Chưa nhập lớp',
+            'sdt.required' => 'Chưa nhập SĐT',
+            'email.required' => 'Chưa nhập email',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
             return redirect(route('sinhviens.edit', $id))
-                    ->withErrors($validator)
-                    ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $sinhvien            = SinhVien::findOrFail($id);        
-        
-        $date                = Carbon::createFromFormat('d/m/Y', $request->ngaysinh);
+        $sinhvien = SinhVien::findOrFail($id);
 
-        $sinhvien->TenSv     = $request->tensv;
-        $sinhvien->IDSV      = $request->idsv;
-        $sinhvien->GioiTinh  = $request->gioitinh;
-        $sinhvien->NgaySinh  = $date->toDateString();
-        $sinhvien->DiaChi    = $request->diachi;
-        $sinhvien->Lop       = $request->lop;
+        $date = Carbon::createFromFormat('d/m/Y', $request->ngaysinh);
+
+        $sinhvien->TenSv = $request->tensv;
+        $sinhvien->IDSV = $request->idsv;
+        $sinhvien->GioiTinh = $request->gioitinh;
+        $sinhvien->NgaySinh = $date->toDateString();
+        $sinhvien->DiaChi = $request->diachi;
+        $sinhvien->Lop = $request->lop;
         $sinhvien->DienThoai = $request->sdt;
-        $sinhvien->Email     = $request->email;
+        $sinhvien->Email = $request->email;
         $sinhvien->save();
 
         return redirect()->back()->with('status', 'Cập Nhật Thông Tin Sinh Viên Thành Công');
@@ -168,7 +168,7 @@ class SinhVienController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

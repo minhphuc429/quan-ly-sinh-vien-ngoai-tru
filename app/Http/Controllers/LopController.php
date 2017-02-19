@@ -32,35 +32,35 @@ class LopController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $rules = [
-            'malop'  =>'required',
+            'malop' => 'required',
             'tenlop' => 'required',
             'makhoa' => 'required',
         ];
 
         $messages = [
-            'malop.required'  =>'Mã Lớp Không Được Để Trống',
-            'tenlop.required' =>'Tên Lớp Không Được Để Trống',
-            'makhoa.required' =>'Mã Khoa Không Được Để Trống',
+            'malop.required' => 'Mã Lớp Không Được Để Trống',
+            'tenlop.required' => 'Tên Lớp Không Được Để Trống',
+            'makhoa.required' => 'Mã Khoa Không Được Để Trống',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
             return redirect(route('lops.create'))
-                    ->withErrors($validator)
-                    ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $lop          = new Lop;
-        
-        $lop->MaLop  = $request->malop;
-        $lop->TenLop  = $request->tenlop;
+        $lop = new Lop;
+
+        $lop->MaLop = $request->malop;
+        $lop->TenLop = $request->tenlop;
         $lop->MaKhoa = $request->makhoa;
         $lop->save();
 
@@ -70,7 +70,7 @@ class LopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -82,7 +82,7 @@ class LopController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -94,36 +94,36 @@ class LopController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $rules = [
-            'malop'  =>'required',
+            'malop' => 'required',
             'tenlop' => 'required',
             'makhoa' => 'required',
         ];
 
         $messages = [
-            'malop.required'  =>'Mã Lớp Không Được Để Trống',
-            'tenlop.required' =>'Tên Lớp Không Được Để Trống',
-            'makhoa.required' =>'Mã Khoa Không Được Để Trống',
+            'malop.required' => 'Mã Lớp Không Được Để Trống',
+            'tenlop.required' => 'Tên Lớp Không Được Để Trống',
+            'makhoa.required' => 'Mã Khoa Không Được Để Trống',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
             return redirect(route('lops.edit', $id))
-                    ->withErrors($validator)
-                    ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $lop          = Lop::findOrfail($id);
-        
-        $lop->MaLop  = $request->malop;
-        $lop->TenLop  = $request->tenlop;
+        $lop = Lop::findOrfail($id);
+
+        $lop->MaLop = $request->malop;
+        $lop->TenLop = $request->tenlop;
         $lop->MaKhoa = $request->makhoa;
         $lop->save();
 
@@ -133,7 +133,7 @@ class LopController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

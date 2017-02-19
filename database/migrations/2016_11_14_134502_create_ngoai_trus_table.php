@@ -25,7 +25,7 @@ class CreateNgoaiTrusTable extends Migration
             $table->string('QuanHe')->nullable();
             $table->string('HTToTruong')->nullable();
             $table->string('DTToTruong')->nullable();
-            
+
             $table->timestamps();
         });
     }
