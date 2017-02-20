@@ -1,14 +1,15 @@
 ### Laravel ###
-/bootstrap/compiled.php
-/vendor
 /node_modules
-Homestead.yaml
+/public/storage
+/public/hot
+/storage/*.key
+/vendor
+/.idea
 Homestead.json
-.env.local.php
-.env.php
+Homestead.yaml
 .env
-composer.phar
-composer.lock
+/composer.lock
+/composer.phar
 
 
 ### SublimeText ###
