@@ -21,8 +21,7 @@
         <label for="makhoa" class="col-md-2 control-label">Mã Khoa</label>
 
         <div class="col-md-10">
-            <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder=""
-                   value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
+            <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
         </div>
     </div>
 
@@ -30,8 +29,7 @@
         <label for="tenkhoa" class="col-md-2 control-label">Ten Khoa</label>
 
         <div class="col-md-10">
-            <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder=""
-                   value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
+            <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
         </div>
     </div>
 

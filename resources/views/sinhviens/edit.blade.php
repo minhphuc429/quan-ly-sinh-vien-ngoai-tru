@@ -29,8 +29,7 @@
             <label for="tensv" class="col-md-2 control-label">Tên Sinh Viên</label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control" id="tensv" name="tensv" placeholder="Nguyễn Minh Phúc"
-                       value="{{ $sinhvien->TenSv }}">
+                <input type="text" class="form-control" id="tensv" name="tensv" placeholder="Nguyễn Minh Phúc" value="{{ $sinhvien->TenSv }}">
             </div>
         </div>
 
@@ -38,8 +37,7 @@
             <label for="idsv" class="col-md-2 control-label">ID Sinh Viên</label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control" id="idsv" name="idsv" placeholder="33205"
-                       value="{{ $sinhvien->IDSV }}">
+                <input type="text" class="form-control" id="idsv" name="idsv" placeholder="33205" value="{{ $sinhvien->IDSV }}">
             </div>
         </div>
 
@@ -47,13 +45,9 @@
             <label for="gioitinh" class="col-md-2 control-label">Giới Tính</label>
 
             <div class="col-md-10 radio">
-                <label>
-                    <input type="radio" name="gioitinh" id="nam" value="1" checked="checked">Nam
-                </label>
+                <label> <input type="radio" name="gioitinh" id="nam" value="1" checked="checked">Nam </label>
 
-                <label>
-                    <input type="radio" name="gioitinh" id="nu" value="0">Nữ
-                </label>
+                <label> <input type="radio" name="gioitinh" id="nu" value="0">Nữ </label>
             </div>
         </div>
 
@@ -61,8 +55,7 @@
             <label for="ngaysinh" class="col-md-2 control-label">Ngày Sinh</label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control" id="ngaysinh" name="ngaysinh" placeholder=""
-                       value="{{ $sinhvien->NgaySinh }}">
+                <input type="text" class="form-control" id="ngaysinh" name="ngaysinh" placeholder="" value="{{ $sinhvien->NgaySinh }}">
             </div>
         </div>
 
@@ -70,8 +63,7 @@
             <label for="diachi" class="col-md-2 control-label">Địa Chỉ</label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Quảng Nam"
-                       value="{{ $sinhvien->DiaChi }}">
+                <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Quảng Nam" value="{{ $sinhvien->DiaChi }}">
             </div>
         </div>
 
@@ -135,8 +127,7 @@
             <label for="lop" class="col-md-2 control-label">Lớp</label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control" id="lop" name="lop" placeholder="CT14A.11"
-                       value="{{ $sinhvien->Lop }}">
+                <input type="text" class="form-control" id="lop" name="lop" placeholder="CT14A.11" value="{{ $sinhvien->Lop }}">
             </div>
         </div>
 
@@ -144,8 +135,7 @@
             <label for="dt" class="col-md-2 control-label">Điện Thoại</label>
 
             <div class="col-md-10">
-                <input type="text" class="form-control" id="sdt" name="sdt" placeholder="01272070675"
-                       value="{{ $sinhvien->DienThoai }}">
+                <input type="text" class="form-control" id="sdt" name="sdt" placeholder="01272070675" value="{{ $sinhvien->DienThoai }}">
             </div>
         </div>
 
@@ -153,8 +143,7 @@
             <label for="email" class="col-md-2 control-label">Email</label>
 
             <div class="col-md-10">
-                <input type="email" class="form-control" id="email" name="email" placeholder="minhphuc429@gmail.com"
-                       value="{{ $sinhvien->Email }}">
+                <input type="email" class="form-control" id="email" name="email" placeholder="minhphuc429@gmail.com" value="{{ $sinhvien->Email }}">
             </div>
         </div>
 
@@ -170,9 +159,9 @@
 
 @section('script')
     <!-- InputMask -->
-    <script src="{{ asset('/js/inputmask.min.js') }}"></script>
-    <script src="{{ asset('/js/inputmask.date.extensions.min.js') }}"></script>
-    <script src="{{ asset('/js/jquery.inputmask.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/input-mask/jquery.inputmask.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
     <script>
         $(function () {
 

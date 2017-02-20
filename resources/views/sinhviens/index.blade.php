@@ -5,21 +5,21 @@
 @section('content-header', 'Sinh Viên')
 
 @section('content')
-@if (session('status'))
-<div class="alert alert-success">
-    {{ session('status') }}
-</div>
-@endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
-<div class="row" style="margin-bottom: 20px; ">
+    <div class="row" style="margin-bottom: 20px; ">
         <div class="col-sm-2">
             <a class="btn btn-info" href="{{ action('SinhVienController@create') }}">Create Person Group</a>
         </div>
     </div>
 
-<div class="table-responsive">
-    <table class="table table-hover table-bordered">
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
             <tr>
                 <th>Tên</th>
                 <th>ID</th>
@@ -38,22 +38,22 @@
                 <th>Email</th>
                 <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach( $sinhviens as $sinhvien)
-            <tr>
-                <td>{{ $sinhvien->TenSv }}</td>
-                <td>{{ $sinhvien->IDSV }}</td>
-                <td>@if($sinhvien->GioiTinh == 1)
-                    {{ 'Nam' }}
-                    @else
-                    {{ 'Nữ' }}
-                    @endif
-                </td>
-                <td>{{ $sinhvien->NgaySinh }}</td>
+                <tr>
+                    <td>{{ $sinhvien->TenSv }}</td>
+                    <td>{{ $sinhvien->IDSV }}</td>
+                    <td>@if($sinhvien->GioiTinh == 1)
+                            {{ 'Nam' }}
+                        @else
+                            {{ 'Nữ' }}
+                        @endif
+                    </td>
+                    <td>{{ $sinhvien->NgaySinh }}</td>
                 <!-- <td>{{ $sinhvien->DanToc }}</td> -->
-                <td>{{ $sinhvien->DiaChi }}</td>
-                    <!-- <td>{{ $sinhvien->CMND }}</td>
+                    <td>{{ $sinhvien->DiaChi }}</td>
+                <!-- <td>{{ $sinhvien->CMND }}</td>
 					<td>{{ $sinhvien->NgayCap }}</td>
 					<td>{{ $sinhvien->NoiCap }}</td>
 					<td>{{ $sinhvien->Khoa }}</td>
@@ -67,9 +67,9 @@
                         <a href="{{ route('sinhviens.edit', $sinhvien->id) }}" class="btn btn-primary ripple">Edit Task</a>
                     </td>
                 </tr>
-                @endforeach
+            @endforeach
             </tbody>
         </table>
     </div>
 
-    @endsection
+@endsection

@@ -17,6 +17,7 @@ class SinhVienController extends Controller
     public function index()
     {
         $sinhviens = SinhVien::all();
+
         return view('sinhviens.index')->with('sinhviens', $sinhviens);
     }
 
@@ -94,6 +95,7 @@ class SinhVienController extends Controller
     public function show($id)
     {
         $sinhvien = SinhVien::findOrFail($id);
+
         return view('sinhviens.show')->with('sinhvien', $sinhvien);
     }
 
@@ -106,6 +108,7 @@ class SinhVienController extends Controller
     public function edit($id)
     {
         $sinhvien = SinhVien::findOrFail($id);
+
         return view('sinhviens.edit')->with('sinhvien', $sinhvien);
     }
 

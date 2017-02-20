@@ -1379,13 +1379,13 @@
                     // If going back one month, make sure month is not current month
                     // (eg, Mar 31 -> Feb 31 == Feb 28, not Mar 02)
                     ? function () {
-                    return new_date.getUTCMonth() === month;
-                }
+                        return new_date.getUTCMonth() === month;
+                    }
                     // If going forward one month, make sure month is as expected
                     // (eg, Jan 31 -> Feb 31 == Feb 28, not Mar 02)
                     : function () {
-                    return new_date.getUTCMonth() !== new_month;
-                };
+                        return new_date.getUTCMonth() !== new_month;
+                    };
                 new_month = month + dir;
                 new_date.setUTCMonth(new_month);
                 // Dec -> Jan (12) or Jan -> Dec (-1) -- limit expected date to 0-11

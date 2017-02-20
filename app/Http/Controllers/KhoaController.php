@@ -16,6 +16,7 @@ class KhoaController extends Controller
     public function index()
     {
         $khoas = Khoa::all();
+
         return view('khoas.index')->with('khoas', $khoas);
     }
 
@@ -78,6 +79,7 @@ class KhoaController extends Controller
     public function show($id)
     {
         $khoa = Khoa::findOrfail($id);
+
         return view('khoas.show')->with('khoa', $khoa);
     }
 
@@ -90,6 +92,7 @@ class KhoaController extends Controller
     public function edit($id)
     {
         $khoa = Khoa::findOrfail($id);
+
         return view('khoas.edit')->with('khoa', $khoa);
     }
 

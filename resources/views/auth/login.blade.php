@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Đại Học Đông Á | Đăng Nhập</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="adminlte/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="adminlte/dist/css/AdminLTE.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="adminlte/plugins/iCheck/square/blue.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Đại Học Đông Á | Đăng Nhập</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="adminlte/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="adminlte/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="adminlte/plugins/iCheck/square/blue.css">
 
     <style>
         body {
@@ -26,11 +26,11 @@
             overflow-x: hidden;
         }
 
-        @media (min-width: 768px){
+        @media (min-width: 768px) {
             .navbar {
                 border-radius: 0px;
             }
-        }        
+        }
 
         .navbar-default {
             background-color: green;
@@ -64,80 +64,77 @@
         }
     </style>
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body class="hold-transition login-page">
 
 <nav class="navbar navbar-default navbar-fixed">
-  <div class="container">    
-    <div class="row">
-        <div class="col-md-7" style="text-align:center">
-            <img src="/images/da.png" height="" width="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7" style="text-align:center">
+                <img src="/images/da.png" height="" width="">
+            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
     </div>
-  </div>
 </nav>
 
 <div class="login-box">
-  <div class="login-logo">
-    <a href="{{ url('/') }}"><b>Đại Học Đông Á</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Đăng nhập hệ thống</p>
+    <div class="login-logo">
+        <a href="{{ url('/') }}"><b>Đại Học Đông Á</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Đăng nhập hệ thống</p>
 
-    <form action="{{ url('/login') }}" method="post">
-    {{ csrf_field() }}
-      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        @if ($errors->has('email'))
-            <span class="help-block">
+        <form action="{{ url('/login') }}" method="post">
+            {{ csrf_field() }}
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
+                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <span class="help-block">
             <strong>{{ $errors->first('email') }}</strong>
         </span>
-        @endif
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
-        @if ($errors->has('password'))
-            <span class="help-block">
+                @endif
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                @if ($errors->has('password'))
+                    <span class="help-block">
             <strong>{{ $errors->first('password') }}</strong>
         </span>
-        @endif
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Duy trì trạng thái đăng nhập
-            </label>
-          </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
+                @endif
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label> <input type="checkbox"> Duy trì trạng thái đăng nhập </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
 
-    <a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>
+        <a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>
 
-  </div>
-  <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">©2016 Trung tâm ICT <a href="http://donga.edu.vn" target="_blank">Trường Đại học Đông Á</a></p>
+        <p class="text-muted">© 2017 Nguyễn Minh Phúc -
+            <a href="http://donga.edu.vn" target="_blank" style="color: #ffffff;">Trường Đại học Đông Á</a></p>
     </div>
 </footer>
 
@@ -148,13 +145,13 @@
 <!-- iCheck -->
 <script src="adminlte/plugins/iCheck/icheck.min.js"></script>
 <script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
     });
-  });
 </script>
 </body>
 </html>

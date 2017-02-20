@@ -16,6 +16,7 @@ class LopController extends Controller
     public function index()
     {
         $lops = Lop::all();
+
         return view('lops.index')->with('lops', $lops);
     }
 
@@ -76,6 +77,7 @@ class LopController extends Controller
     public function show($id)
     {
         $lop = Lop::findOrfail($id);
+
         return view('lops.show')->with('lop', $lop);
     }
 
@@ -88,6 +90,7 @@ class LopController extends Controller
     public function edit($id)
     {
         $lop = Lop::findOrfail($id);
+
         return view('lops.edit')->with('lop', $lop);
     }
 
@@ -140,6 +143,7 @@ class LopController extends Controller
     {
         $lop = Lop::findOrfail($id);
         $lop->delete();
+
         return redirect(route('lops.index'))->with('status', 'Xóa Mã Lớp Thành Công');
     }
 }
