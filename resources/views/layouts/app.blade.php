@@ -20,6 +20,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/skins/_all-skins.css') }}">
+    <!-- Pace style -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/pace/pace.min.css') }}">
     <!-- Pure CSS ripple effect -->
     <link rel="stylesheet" href="{{ asset('assets/css/ripple.min.css') }}">
     <!-- Custom CSS -->
@@ -54,8 +56,17 @@
 <script src="{{ asset('adminlte/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- PACE -->
+<script src="{{ asset('adminlte/plugins/pace/pace.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/app.min.js') }}"></script>
+<!-- page script -->
+<script type="text/javascript">
+    // To make Pace works on Ajax calls
+    $(document).ajaxStart(function () {
+        Pace.restart();
+    });
+</script>
 @yield('script')
 </body>
 </html>
