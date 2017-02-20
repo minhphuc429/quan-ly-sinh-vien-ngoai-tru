@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Quản Lý Sinh Viên Ngoại Trú - Trường Đại Học Đông Á',
+    'name' => 'Quản Lý Sinh Viên Ngoại Trú',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
 
     ],
 
