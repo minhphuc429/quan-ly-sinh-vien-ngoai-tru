@@ -58,6 +58,8 @@
 <script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- PACE -->
 <script src="{{ asset('adminlte/plugins/pace/pace.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('adminlte/plugins/fastclick/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/app.min.js') }}"></script>
 <!-- page script -->
