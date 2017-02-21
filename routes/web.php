@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::resource('sinhviens', 'SinhVienController');
     Route::resource('khoas', 'KhoaController');
     Route::resource('lops', 'LopController');

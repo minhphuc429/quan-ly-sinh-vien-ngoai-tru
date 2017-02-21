@@ -15,19 +15,19 @@
         <ul class="sidebar-menu">
             <li class="header">Quản Lý Sinh Viên</li>
             <li class="{{ Request::segment(1) === 'home' ? 'active' : null }} treeview">
-                <a href="{{ url('home') }}"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+                <a href="{{ action('HomeController@index') }}"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
             </li>
-            <li class="{{ Request::segment(1) === 'sinhviens' ? 'active' : null }} treeview">
-                <a href="{{ url('sinhviens') }}"> <i class="fa fa-user"></i> <span>Sinh Viên</span> </a>
+            <li class="{{ Request::segment(2) === 'sinhviens' ? 'active' : null }} treeview">
+                <a href="{{ action('SinhVienController@index') }}"> <i class="fa fa-user"></i> <span>Sinh Viên</span> </a>
             </li>
-            <li class="{{ Request::segment(1) === 'lops' ? 'active' : null }} treeview">
-                <a href="{{ url('lops') }}"> <i class="fa fa-users"></i> <span>Lớp</span> </a>
+            <li class="{{ Request::segment(2) === 'lops' ? 'active' : null }} treeview">
+                <a href="{{ action('LopController@index') }}"> <i class="fa fa-users"></i> <span>Lớp</span> </a>
             </li>
-            <li class="{{ Request::segment(1) === 'khoas' ? 'active' : null }} treeview">
-                <a href="{{ url('khoas') }}"> <i class="fa fa-building"></i> <span>Khoa</span> </a>
+            <li class="{{ Request::segment(2) === 'khoas' ? 'active' : null }} treeview">
+                <a href="{{ action('KhoaController@index') }}"> <i class="fa fa-building"></i> <span>Khoa</span> </a>
             </li>
-            <li class="{{ Request::segment(1) === 'ngoaitrus' ? 'active' : null }} treeview">
-                <a href="{{ url('ngoaitrus') }}"> <i class="fa fa-map-marker"></i> <span>Ngoại trú</span> </a>
+            <li class="{{ Request::segment(2) === 'ngoaitrus' ? 'active' : null }} treeview">
+                <a href="{{ action('NgoaiTruController@index') }}"> <i class="fa fa-map-marker"></i> <span>Ngoại trú</span> </a>
             </li>
         </ul>
     </section>
