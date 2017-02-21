@@ -83,7 +83,7 @@ class SinhVienController extends Controller
         $sinhvien->Email = $request->email;
         $sinhvien->save();
 
-        return redirect('sinhviens')->with('status', 'Thêm Thông Tin Sinh Viên Thành Công');
+        return redirect()->back()->with('status', 'Thêm Thông Tin Sinh Viên Thành Công');
     }
 
     /**

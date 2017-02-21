@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul class="fa-ul">
@@ -15,6 +16,13 @@
             </ul>
         </div>
     @endif
+
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <form class="form-horizontal" action="{{ url('sinhviens') }}" method="POST" role="form">
 
         {{ csrf_field() }}
@@ -147,7 +155,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default ripple">Submit</button>
+                <a href="{{ action('SinhVienController@index') }}" class="btn btn-default ripple">Back</a>
+                <button type="submit" class="btn btn-success ripple">Submit</button>
             </div>
         </div>
     </form>
