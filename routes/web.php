@@ -22,4 +22,4 @@ Route::get('/home', 'HomeController@index');
 Route::resource('sinhviens', 'SinhVienController');
 Route::resource('khoas', 'KhoaController');
 Route::resource('lops', 'LopController');
-Route::resource('ngoaitrus', 'LopController');
+Route::resource('ngoaitrus', 'NgoaiTruController');

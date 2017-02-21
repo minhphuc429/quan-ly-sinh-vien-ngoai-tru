@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Cập Nhật Lớp')
+@section('title', 'Cập Nhật Ngoại Trú')
 
-@section('content-header', 'Lớp')
+@section('content-header', 'Ngoại Trú')
 
 @section('content')
 
@@ -22,7 +22,7 @@
         </div>
     @endif
 
-    <form action="{{ route('lops.update', $lop->id) }}" method="POST" role="form">
+    <form action="{{ route('ngoaitrus.update', $lop->id) }}" method="POST" role="form">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <legend>Form title</legend>
@@ -53,7 +53,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2">
-                <a href="{{ route('lops.index') }}" class="btn btn-default">Back</a>
+                <a href="{{ route('ngoaitrus.index') }}" class="btn btn-default">Back</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

@@ -27,7 +27,7 @@
                 <a href="{{ url('khoas') }}"> <i class="fa fa-building"></i> <span>Khoa</span> </a>
             </li>
             <li class="{{ Request::segment(1) === 'ngoaitrus' ? 'active' : null }} treeview">
-                <a href="{{ url('ngoaitrus') }}"> <i class="fa fa-map-marker"></i> <span>Lưu trú</span> </a>
+                <a href="{{ url('ngoaitrus') }}"> <i class="fa fa-map-marker"></i> <span>Ngoại trú</span> </a>
             </li>
         </ul>
     </section>
