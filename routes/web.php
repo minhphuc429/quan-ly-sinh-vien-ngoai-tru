@@ -19,7 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('sinhviens', 'SinhVienController');
-Route::resource('khoas', 'KhoaController');
-Route::resource('lops', 'LopController');
-Route::resource('ngoaitrus', 'NgoaiTruController');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::resource('sinhviens', 'SinhVienController');
+    Route::resource('khoas', 'KhoaController');
+    Route::resource('lops', 'LopController');
+    Route::resource('ngoaitrus', 'NgoaiTruController');
+});
