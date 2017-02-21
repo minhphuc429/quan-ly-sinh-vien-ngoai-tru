@@ -17,3 +17,4 @@
         @yield('content')
     </section>
     <!-- /.content -->
+</div>
