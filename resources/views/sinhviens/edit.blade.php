@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul class="fa-ul">
@@ -15,11 +16,13 @@
             </ul>
         </div>
     @endif
+
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
     @endif
+
     <form class="form-horizontal" action="{{ route('sinhviens.update', $sinhvien->id) }}" method="POST" role="form">
         {{ csrf_field() }}
         {{ method_field('PUT') }}
