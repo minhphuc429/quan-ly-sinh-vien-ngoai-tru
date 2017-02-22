@@ -65,7 +65,7 @@ class LopController extends Controller
         $lop->MaKhoa = $request->makhoa;
         $lop->save();
 
-        return redirect(route('lops.index'))->with('status', 'Thêm Mã Lớp Thành Công');
+        return redirect()->back()->with('status', 'Thêm Mã Lớp Thành Công');
     }
 
     /**

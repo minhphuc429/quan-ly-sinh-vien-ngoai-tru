@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Khoa')
+
 @section('stylesheet')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.css') }}">
 @endsection
-
-@section('title', 'Khoa')
 
 @section('content-header', 'Khoa')
 
@@ -60,6 +60,8 @@
                                 <td>
                                     <a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info">View</a>
                                     <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success">Edit</a>
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -75,6 +77,28 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-delete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Xác nhận</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Xác nhận xóa khoa cùng các lớp trong đó?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection
