@@ -2,6 +2,11 @@
 
 @section('title', 'Thông Tin Ngoại Trú')
 
+@section('stylesheet')
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.css') }}">
+@endsection
+
 @section('content-header', 'Ngoại Trú')
 
 @section('content')
@@ -28,34 +33,69 @@
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>STT</th>
-                <th>Mã Lớp</th>
-                <th>Tên Lớp</th>
-                <th>Mã Khoa</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            @php
-                $i = 0;
-            @endphp
-            @foreach ($ngoaitrus->all() as $ngoaitru)
-                <tr>
-                    <td>{{ ++$i }}</td>
-                    <td>{{ $ngoaitru->Mangoaitru }}</td>
-                    <td>{{ $ngoaitru->Tenngoaitru }}</td>
-                    <td>{{ $ngoaitru->MaKhoa }}</td>
-                    <td>
-                        <a href="{{ route('ngoaitrus.show', $ngoaitru->id) }}" class="btn btn-info">View Task</a>
-                        <a href="{{ route('ngoaitrus.edit', $ngoaitru->id) }}" class="btn btn-primary">Edit Task</a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">
+                        Danh Sách Khoa </h3>
+                </div>
+
+                <div class="box-body">
+                    <table id="data-table" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Mã Khoa</th>
+                            <th>Tên Khoa</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{--@foreach($khoas->all() as $khoa)
+                            <tr>
+                                <td>{{ $khoa->id }}</td>
+                                <td>{{ $khoa->MaKhoa }}</td>
+                                <td>{{ $khoa->TenKhoa }} </td>
+                                <td>
+                                    <a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info">View</a>
+                                    <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success">Edit</a>
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Xóa</button>
+                                </td>
+                            </tr>
+                        @endforeach--}}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Mã Khoa</th>
+                            <th>Tên Khoa</th>
+                            <th>Action</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+@endsection
+
+@section('script')
+    <!-- DataTables -->
+    <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script>
+        $(function () {
+            $('#data-table').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true
+            });
+        });
+    </script>
+
 @endsection
