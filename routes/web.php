@@ -30,8 +30,8 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('ngoaitrus', 'NgoaiTruController');
 
         // User Manager
-        Route::resource('roles', 'SinhVienController');
-        Route::resource('permissions', 'KhoaController');
-        Route::resource('users', 'LopController');
+        Route::resource('roles', 'RoleController');
+        Route::resource('permissions', 'PermissionController');
+        Route::resource('users', 'UserController');
     });
 });

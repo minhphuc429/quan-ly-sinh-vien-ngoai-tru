@@ -5,6 +5,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('adminlte/plugins/datepicker/datepicker3.css') }}">
 @endsection
 
+@section('title', 'Thêm Thông tin sinh viên')
+
+@section('content-header', 'Sinh Viên')
+
 @section('content')
 
     @if (count($errors) > 0)
