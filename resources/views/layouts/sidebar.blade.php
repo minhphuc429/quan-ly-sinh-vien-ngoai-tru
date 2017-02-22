@@ -5,7 +5,11 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ asset('images/user-01.png') }}" class="img-rounded" alt="User Image">
+                @if(Auth::guest())
+                    <img src="{{ asset('images/kyra.png') }}" class="img-rounded" alt="User Image">
+                @else
+                    <img src="{{ Gravatar::get(Auth::user()->email, 'default') }}" class="img-rounded" alt="User Image">
+                @endif
             </div>
             <div class="pull-left info">
                 <!-- Authentication Links -->

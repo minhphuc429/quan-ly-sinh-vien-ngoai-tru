@@ -180,6 +180,7 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         Zizaco\Entrust\EntrustServiceProvider::class, // Role-based Permissions for Laravel 5
+        Creativeorange\Gravatar\GravatarServiceProvider::class // gravatar
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'Entrust'      => Zizaco\Entrust\EntrustFacade::class, // Role-based Permissions for Laravel 5
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
 
     ],
 
