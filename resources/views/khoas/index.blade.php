@@ -38,7 +38,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">
-                        Bảng Khoa </h3>
+                        Danh Sách Khoa </h3>
                 </div>
 
                 <div class="box-body">
