@@ -15,11 +15,14 @@ class CreateLopsTable extends Migration
     {
         Schema::create('lops', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('MaLop');
+            $table->string('MaLop')->unique();
             $table->string('TenLop');
-            $table->string('MaKhoa');
+            $table->string('MaKhoa')->unique();
 
             $table->timestamps();
+
+            $table->foreign('MaKhoa')->references('MaKhoa')->on('khoas')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

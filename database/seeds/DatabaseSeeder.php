@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'Nguyễn Ngọc Thiện',
+            'email' => 'buqnvn@gmail.com',
+            'password' => bcrypt('24041995'),
+        ]);
+
         $admin = new Role();
         $admin->name         = 'admin';
         $admin->display_name = 'User Administrator'; // optional

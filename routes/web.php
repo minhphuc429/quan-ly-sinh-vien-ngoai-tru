@@ -19,9 +19,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
-    Route::resource('sinhviens', 'SinhVienController');
-    Route::resource('khoas', 'KhoaController');
-    Route::resource('lops', 'LopController');
-    Route::resource('ngoaitrus', 'NgoaiTruController');
+Route::group(['middleware' => 'role:admin'], function () {
+
+    Route::group(['prefix' => 'admin'], function () {
+
+        // Sinh Viên
+        Route::resource('sinhviens', 'SinhVienController');
+        Route::resource('khoas', 'KhoaController');
+        Route::resource('lops', 'LopController');
+        Route::resource('ngoaitrus', 'NgoaiTruController');
+
+        // User Manager
+        Route::resource('roles', 'SinhVienController');
+        Route::resource('permissions', 'KhoaController');
+        Route::resource('users', 'LopController');
+    });
 });

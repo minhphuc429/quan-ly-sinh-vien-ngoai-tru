@@ -13,7 +13,7 @@
 
     <div class="row" style="margin-bottom: 20px; ">
         <div class="col-sm-2">
-            <a class="btn btn-info" href="{{ action('SinhVienController@create') }}">Create Person Group</a>
+            <a class="btn btn-info" href="{{ action('SinhVienController@create') }}">Thêm Sinh Viên</a>
         </div>
     </div>
 

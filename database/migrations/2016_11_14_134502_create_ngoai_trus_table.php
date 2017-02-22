@@ -15,18 +15,21 @@ class CreateNgoaiTrusTable extends Migration
     {
         Schema::create('ngoai_trus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('IDSV');
-            $table->string('HTChuNha')->nullable();
-            $table->string('DTChuNha')->nullable();
-            $table->string('SoNha')->nullable();
-            $table->string('Duong')->nullable();
-            $table->string('ToDanPho')->nullable();
-            $table->string('Phuong')->nullable();
-            $table->string('QuanHe')->nullable();
-            $table->string('HTToTruong')->nullable();
-            $table->string('DTToTruong')->nullable();
+            $table->string('MaSV')->unique();
+            $table->string('HTChuNha');
+            $table->string('DTChuNha');
+            $table->string('SoNha');
+            $table->string('Duong');
+            $table->string('ToDanPho');
+            $table->string('Phuong');
+            $table->string('QuanHe');
+            $table->string('HTToTruong');
+            $table->string('DTToTruong');
 
             $table->timestamps();
+
+            $table->foreign('MaSV')->references('MaSV')->on('sinh_viens')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
