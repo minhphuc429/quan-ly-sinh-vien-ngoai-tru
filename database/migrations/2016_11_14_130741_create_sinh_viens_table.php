@@ -27,12 +27,14 @@ class CreateSinhViensTable extends Migration
             $table->string('Khoa');
             $table->string('Nganh');
             $table->string('Bac');*/
-            $table->string('MaLop')->unique();
+            $table->string('MaLop');
             $table->string('DienThoai')->nullable()->unique();
             $table->string('Email')->nullable()->unique();
 
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('MaLop');
 
             $table->foreign('MaLop')->references('MaLop')->on('lops')
                 ->onUpdate('cascade')->onDelete('cascade');
