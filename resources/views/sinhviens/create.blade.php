@@ -27,7 +27,7 @@
         </div>
     @endif
 
-    <form class="form-horizontal" action="{{ url('sinhviens') }}" method="POST" role="form">
+    <form class="form-horizontal" action="{{ action('SinhVienController@store') }}" method="POST" role="form">
 
         {{ csrf_field() }}
 

@@ -1,17 +1,19 @@
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul class="fa-ul">
+            @foreach ($errors->all() as $error)
+                <li><i class="fa-li fa fa-chevron-circle-right"></i>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
 @endif
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul class="fa-ul">
-            @foreach ($errors->all() as $error)
-                <li class="fa-li fa fa-chevron-circle-right">{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 <form action="{{ route('lops.store') }}" method="POST" role="form">
     {{ csrf_field() }}
     <legend>Form title</legend>

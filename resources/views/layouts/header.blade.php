@@ -15,37 +15,42 @@
             <ul class="nav navbar-nav">
 
                 <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{ asset('images/user-01.png') }}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Phúc</span>
-                        <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i> </a>
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="{{ asset('images/user-01.png') }}" class="img-circle" alt="User Image">
-
-                            <p>
-                                Nguyễn Minh Phúc - Web Developer
-                                <small>Member since Nov. 2012</small>
-                            </p>
-                        </li>
-
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Đăng xuất</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
+                @if(Auth::guest())
+                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right: 5px;font-size: 12px;"></i> Đăng nhập</a></li>
+                @else
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ asset('images/user-01.png') }}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i> </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="{{ asset('images/user-01.png') }}" class="img-circle" alt="User Image">
+        
+                                <p>
+                                    {{ Auth::user()->name }}
+                                    <small>{{ Auth::user()->email }}</small>
+                                </p>
+        
+                            </li>
+        
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">Đăng xuất</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div>
     </nav>

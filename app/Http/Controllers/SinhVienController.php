@@ -73,12 +73,12 @@ class SinhVienController extends Controller
 
         $sinhvien = new SinhVien;
 
-        $sinhvien->TenSv = $request->tensv;
-        $sinhvien->IDSV = $request->idsv;
+        $sinhvien->HoTen = $request->tensv;
+        $sinhvien->MaSV = $request->idsv;
         $sinhvien->GioiTinh = $request->gioitinh;
         $sinhvien->NgaySinh = $date->toDateString();
         $sinhvien->DiaChi = $request->diachi;
-        $sinhvien->Lop = $request->lop;
+        $sinhvien->MaLop = $request->lop;
         $sinhvien->DienThoai = $request->sdt;
         $sinhvien->Email = $request->email;
         $sinhvien->save();
@@ -155,12 +155,12 @@ class SinhVienController extends Controller
 
         $date = Carbon::createFromFormat('d/m/Y', $request->ngaysinh);
 
-        $sinhvien->TenSv = $request->tensv;
-        $sinhvien->IDSV = $request->idsv;
+        $sinhvien->HoTen = $request->tensv;
+        $sinhvien->MaSV = $request->idsv;
         $sinhvien->GioiTinh = $request->gioitinh;
         $sinhvien->NgaySinh = $date->toDateString();
         $sinhvien->DiaChi = $request->diachi;
-        $sinhvien->Lop = $request->lop;
+        $sinhvien->MaLop = $request->lop;
         $sinhvien->DienThoai = $request->sdt;
         $sinhvien->Email = $request->email;
         $sinhvien->save();
