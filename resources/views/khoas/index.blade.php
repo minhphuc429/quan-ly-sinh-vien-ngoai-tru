@@ -91,8 +91,7 @@
                     <h4 class="modal-title">Xác nhận xóa?</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Bạn có muốn xóa Khoa "<b class="message"></b>"</p>
-                    <p>Những lớp trong khoa cũng sẽ bị xóa.</p>
+                    <p>Những lớp trong Khoa "<b class="message"></b>" cũng sẽ bị xóa.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default ripple" data-dismiss="modal">Hủy</button>
@@ -126,7 +125,8 @@
             });
 
             $('.modal-footer').on('click', '.btn-google', function (e) {
-                $('.btn-google').prop('disabled', true);
+                e.preventDefault();
+                $(".btn-google").prop('disabled', true);
                 var id = $(this).data('id');
 
                 $.ajax({
@@ -140,12 +140,12 @@
                     success: function (data) {
                         $('table#data-table tr#' + id).remove();
                         $('#modal-delete').modal('toggle');
+                        $(".btn-google").prop('disabled', false);
                     },
                     error: function (data) {
                         console.log(data);
                     }
                 });
-
             });
         });
     </script>
