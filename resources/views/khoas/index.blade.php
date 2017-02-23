@@ -58,8 +58,8 @@
                                 <td>{{ $khoa->MaKhoa }}</td>
                                 <td>{{ $khoa->TenKhoa }} </td>
                                 <td>
-                                    <a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info ripple">View</a>
-                                    <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success ripple">Edit</a>
+                                    {{--<a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info ripple">View</a>--}}
+                                    <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success ripple">Sửa</a>
                                     <!-- Trigger the modal with a button -->
                                     <button class="btn btn-danger ripple" data-id="{{$khoa->id}}" data-name="{{$khoa->TenKhoa}}" data-message="{{ $khoa->TenKhoa }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
