@@ -16,10 +16,12 @@
 
                 <!-- User Account: style can be found in dropdown.less -->
                 @if(Auth::guest())
-                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right: 5px;font-size: 12px;"></i> Đăng nhập</a></li>
+                    <li>
+                        <a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right: 5px;font-size: 12px;"></i> Đăng nhập</a>
+                    </li>
                 @else
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle ripple" data-toggle="dropdown">
                             <img src="{{ Gravatar::get(Auth::user()->email, 'default') }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                             <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i> </a>
@@ -27,21 +29,19 @@
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="{{ Gravatar::get(Auth::user()->email, 'default') }}" class="img-circle" alt="User Image">
-        
                                 <p>
                                     {{ Auth::user()->name }}
                                     <small>{{ Auth::user()->email }}</small>
                                 </p>
-        
                             </li>
-        
+
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat ripple">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat ripple" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">Đăng xuất</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}

@@ -39,18 +39,18 @@ class KhoaController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'makhoa' => 'required|numeric|unique:khoas|digits:6',
+            'makhoa'  => 'required|numeric|unique:khoas|digits:6',
             'tenkhoa' => 'required|unique:khoas|max:255',
         ];
 
         $messages = [
-            'makhoa.required' => 'Chưa nhập mã khoa',
-            'makhoa.numeric' => 'Mã khoa chỉ được phép chứa số',
-            'makhoa.unique' => 'Mã khoa đã tồn tại trước đó',
-            'makhoa.digits' => 'Mã khoa độ dài 6 ký tự',
+            'makhoa.required'  => 'Chưa nhập mã khoa',
+            'makhoa.numeric'   => 'Mã khoa chỉ được phép chứa số',
+            'makhoa.unique'    => 'Mã khoa đã tồn tại trước đó',
+            'makhoa.digits'    => 'Mã khoa độ dài 6 ký tự',
             'tenkhoa.required' => 'Chưa nhập tên khoa',
-            'tenkhoa.unique' => 'Tên khoa đã tồn tại trước đó',
-            'tenkhoa.max' => 'Tên khoa chỉ chứa tối đa 255 ký tự',
+            'tenkhoa.unique'   => 'Tên khoa đã tồn tại trước đó',
+            'tenkhoa.max'      => 'Tên khoa chỉ chứa tối đa 255 ký tự',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -106,16 +106,16 @@ class KhoaController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'makhoa' => 'required|numeric|digits:6',
+            'makhoa'  => 'required|numeric|digits:6',
             'tenkhoa' => 'required|max:255',
         ];
 
         $messages = [
-            'makhoa.required' => 'Chưa nhập mã khoa',
-            'makhoa.numeric' => 'Mã khoa chỉ được phép chứa số',
-            'makhoa.digits' => 'Mã khoa độ dài 6 ký tự',
+            'makhoa.required'  => 'Chưa nhập mã khoa',
+            'makhoa.numeric'   => 'Mã khoa chỉ được phép chứa số',
+            'makhoa.digits'    => 'Mã khoa độ dài 6 ký tự',
             'tenkhoa.required' => 'Chưa nhập tên khoa',
-            'tenkhoa.max' => 'Tên khoa chỉ chứa tối đa 255 ký tự',
+            'tenkhoa.max'      => 'Tên khoa chỉ chứa tối đa 255 ký tự',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -146,6 +146,7 @@ class KhoaController extends Controller
         $khoa = Khoa::findOrfail($id);
         $khoa->delete();
 
-        return redirect()->route('khoas.index')->with('status', 'Xóa Mã Khoa Thành Công');
+        /*return redirect()->route('khoas.index')->with('status', 'Xóa Mã Khoa Thành Công');*/
+        return response()->json();
     }
 }

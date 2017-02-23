@@ -29,7 +29,7 @@
 
     <div class="row" style="margin-bottom: 20px; ">
         <div class="col-sm-2">
-            <a class="btn btn-info" href="{{ action('KhoaController@create') }}">Thêm Khoa</a>
+            <a class="btn btn-info ripple" href="{{ action('KhoaController@create') }}">Thêm Khoa</a>
         </div>
     </div>
 
@@ -53,15 +53,15 @@
                         </thead>
                         <tbody>
                         @foreach($khoas->all() as $khoa)
-                            <tr>
+                            <tr id="{{ $khoa->id }}">
                                 <td>{{ $khoa->id }}</td>
                                 <td>{{ $khoa->MaKhoa }}</td>
                                 <td>{{ $khoa->TenKhoa }} </td>
                                 <td>
-                                    <a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info">View</a>
-                                    <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info ripple">View</a>
+                                    <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success ripple">Edit</a>
                                     <!-- Trigger the modal with a button -->
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Xóa</button>
+                                    <button class="btn btn-danger ripple" data-id="{{$khoa->id}}" data-name="{{$khoa->TenKhoa}}" data-message="{{ $khoa->TenKhoa }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -88,14 +88,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Xác nhận</h4>
+                    <h4 class="modal-title">Xác nhận xóa?</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Xác nhận xóa khoa cùng các lớp trong đó?</p>
+                    <p>Bạn có muốn xóa Khoa "<b class="message"></b>"</p>
+                    <p>Những lớp trong khoa cũng sẽ bị xóa.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-
+                    <button type="button" class="btn btn-default ripple" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-google ripple" data-id="">Đồng ý</button>
                 </div>
             </div>
 
@@ -116,6 +117,35 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": true
+            });
+
+            $('#modal-delete').on('show.bs.modal', function (e) {
+                var data = $(e.relatedTarget).data();
+                $('.message', this).text(data.message);
+                $('.btn-google', this).data('id', data.id);
+            });
+
+            $('.modal-footer').on('click', '.btn-google', function (e) {
+                $('.btn-google').prop('disabled', true);
+                var id = $(this).data('id');
+
+                $.ajax({
+                    type: "post",
+                    url: '{{ action('KhoaController@index') }}' + '/' + id,
+                    data: {
+                        '_method': 'delete',
+                        '_token': "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('table#data-table tr#' + id).remove();
+                        $('#modal-delete').modal('toggle');
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+
             });
         });
     </script>
