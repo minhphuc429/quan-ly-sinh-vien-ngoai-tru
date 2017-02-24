@@ -28,6 +28,16 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * Get the login username to be used by the controller.
+     * https://github.com/laravel/framework/issues/14819
+     * @return string
+     */
+    public function username()
+    {
+        return 'username';
+    }
+
+    /**
      * Create a new controller instance.
      *
      * @return void

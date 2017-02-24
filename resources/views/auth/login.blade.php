@@ -92,9 +92,9 @@
 
         <form action="{{ url('/login') }}" method="post">
             {{ csrf_field() }}
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
-                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
-                @if ($errors->has('email'))
+            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
+                <input type="text" name="username" class="form-control" placeholder="ID UDA" value="{{ old('username') }}" required autofocus>
+                @if ($errors->has('username'))
                     <span class="help-block">
             <strong>{{ $errors->first('email') }}</strong>
         </span>

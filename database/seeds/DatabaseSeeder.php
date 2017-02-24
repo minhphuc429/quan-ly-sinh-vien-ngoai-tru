@@ -15,33 +15,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-
+        // Seeder Admin
         DB::table('users')->insert([
-            'name' => 'Nguyễn Minh Phúc',
-            'email' => 'minhphuc429@gmail.com',
-            'password' => bcrypt('24041995'),
+            'username'   => '33205',
+            'name'       => 'Nguyễn Minh Phúc',
+            'email'      => '33205@donga.edu.vn',
+            'password'   => bcrypt('abc.12345'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'Nguyễn Ngọc Thiện',
-            'email' => 'buqnvn@gmail.com',
-            'password' => bcrypt('24041995'),
-        ]);
-
         $admin = new Role();
-        $admin->name         = 'admin';
+        $admin->name = 'admin';
         $admin->display_name = 'User Administrator'; // optional
-        $admin->description  = 'User is allowed to manage and edit other users'; // optional
+        $admin->description = 'User is allowed to manage and edit other users'; // optional
         $admin->save();
 
-        $user = User::where('email', '=', 'minhphuc429@gmail.com')->first();
+        $user = User::where('email', '=', '33205@donga.edu.vn')->first();
 
         // role attach alias
         $user->attachRole($admin); // parameter can be an Role object, array, or id
 
-
+        // Seeder User
+        $this->call(UsersTableSeeder::class);
     }
 }
