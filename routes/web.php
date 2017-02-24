@@ -42,7 +42,7 @@ Route::group(['middleware' => 'role:admin'], function () {
         // Sinh Viên
         Route::resource('sinhviens', 'SinhVienController');
         Route::resource('khoas', 'KhoaController', ['except' => [
-            'show'
+            'show',
         ]]);
         Route::resource('lops', 'LopController');
         Route::resource('ngoaitrus', 'NgoaiTruController');

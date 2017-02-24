@@ -22,6 +22,20 @@
         </div>
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
+
+        <ul class="sidebar-menu">
+            <li class="header">Thông báo</li>
+            <li class="{{ Request::segment(2) === 'ngoaitrus' ? 'active' : null }} treeview ripple">
+                <a href=""> <i class="fa fa-flag-o"></i>
+                    <span>Thông tin thông báo</span> </a>
+            </li>
+            <li class="header">Sinh Viên</li>
+            <li class="{{ Request::segment(2) === 'ngoaitrus' ? 'active' : null }} treeview ripple">
+                <a href=""> <i class="fa fa-map-marker"></i>
+                    <span>Thông tin ngoại trú</span> </a>
+            </li>
+        </ul>
+
         @if(Entrust::hasRole('admin'))
 
             <ul class="sidebar-menu">
@@ -61,8 +75,10 @@
                     <a href="{{ action('UserController@index') }}"> <i class="fa fa-cubes"></i> <span>User</span> </a>
                 </li>
             </ul>
-            
+
         @endif
+
+
     </section>
     <!-- /.sidebar -->
 </aside>
