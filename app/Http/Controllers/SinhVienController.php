@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lop;
 use Illuminate\Http\Request;
 use Validator;
 use App\SinhVien;
@@ -28,7 +29,9 @@ class SinhVienController extends Controller
      */
     public function create()
     {
-        return view('sinhviens.create');
+        $lops = Lop::all();
+
+        return view('sinhviens.create')->with('lops', $lops);
     }
 
     /**
@@ -40,25 +43,25 @@ class SinhVienController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'tensv' => 'required|max:255',
-            'idsv' => 'required',
+            'tensv'    => 'required|max:255',
+            'idsv'     => 'required',
             'gioitinh' => 'required',
             'ngaysinh' => 'required',
-            'diachi' => 'required',
-            'lop' => 'required',
-            'sdt' => 'required',
-            'email' => 'required',
+            'diachi'   => 'required',
+            'malop'      => 'required',
+            'sdt'      => 'required',
+            'email'    => 'required',
         ];
 
         $messages = [
-            'tensv.required' => 'Chưa nhập tên',
-            'idsv.required' => 'Chưa nhập ID sinh viên',
+            'tensv.required'    => 'Chưa nhập tên',
+            'idsv.required'     => 'Chưa nhập ID sinh viên',
             'gioitinh.required' => 'Chưa chọn giới tính',
             'ngaysinh.required' => 'Chưa nhập ngày sinh',
-            'diachi.required' => 'Chưa nhập địa chỉ',
-            'lop.required' => 'Chưa nhập lớp',
-            'sdt.required' => 'Chưa nhập SĐT',
-            'email.required' => 'Chưa nhập email',
+            'diachi.required'   => 'Chưa nhập địa chỉ',
+            'malop.required'      => 'Chưa nhập lớp',
+            'sdt.required'      => 'Chưa nhập SĐT',
+            'email.required'    => 'Chưa nhập email',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -78,7 +81,7 @@ class SinhVienController extends Controller
         $sinhvien->GioiTinh = $request->gioitinh;
         $sinhvien->NgaySinh = $date->toDateString();
         $sinhvien->DiaChi = $request->diachi;
-        $sinhvien->MaLop = $request->lop;
+        $sinhvien->MaLop = $request->malop;
         $sinhvien->DienThoai = $request->sdt;
         $sinhvien->Email = $request->email;
         $sinhvien->save();
@@ -122,25 +125,25 @@ class SinhVienController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'tensv' => 'required|max:255',
-            'idsv' => 'required',
+            'tensv'    => 'required|max:255',
+            'idsv'     => 'required',
             'gioitinh' => 'required',
             'ngaysinh' => 'required',
-            'diachi' => 'required',
-            'lop' => 'required',
-            'sdt' => 'required',
-            'email' => 'required',
+            'diachi'   => 'required',
+            'lop'      => 'required',
+            'sdt'      => 'required',
+            'email'    => 'required',
         ];
 
         $messages = [
-            'tensv.required' => 'Chưa nhập tên',
-            'idsv.required' => 'Chưa nhập ID sinh viên',
+            'tensv.required'    => 'Chưa nhập tên',
+            'idsv.required'     => 'Chưa nhập ID sinh viên',
             'gioitinh.required' => 'Chưa chọn giới tính',
             'ngaysinh.required' => 'Chưa nhập ngày sinh',
-            'diachi.required' => 'Chưa nhập địa chỉ',
-            'lop.required' => 'Chưa nhập lớp',
-            'sdt.required' => 'Chưa nhập SĐT',
-            'email.required' => 'Chưa nhập email',
+            'diachi.required'   => 'Chưa nhập địa chỉ',
+            'lop.required'      => 'Chưa nhập lớp',
+            'sdt.required'      => 'Chưa nhập SĐT',
+            'email.required'    => 'Chưa nhập email',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
