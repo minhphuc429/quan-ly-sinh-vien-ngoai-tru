@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Lop;
+use App\Khoa;
 
 class LopController extends Controller
 {
@@ -27,7 +28,9 @@ class LopController extends Controller
      */
     public function create()
     {
-        return view('lops.create');
+        $khoas = Khoa::all();
+
+        return view('lops.create')->with('khoas', $khoas);
     }
 
     /**
@@ -39,13 +42,13 @@ class LopController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'malop' => 'required',
+            'malop'  => 'required',
             'tenlop' => 'required',
             'makhoa' => 'required',
         ];
 
         $messages = [
-            'malop.required' => 'Mã Lớp Không Được Để Trống',
+            'malop.required'  => 'Mã Lớp Không Được Để Trống',
             'tenlop.required' => 'Tên Lớp Không Được Để Trống',
             'makhoa.required' => 'Mã Khoa Không Được Để Trống',
         ];
@@ -104,13 +107,13 @@ class LopController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'malop' => 'required',
+            'malop'  => 'required',
             'tenlop' => 'required',
             'makhoa' => 'required',
         ];
 
         $messages = [
-            'malop.required' => 'Mã Lớp Không Được Để Trống',
+            'malop.required'  => 'Mã Lớp Không Được Để Trống',
             'tenlop.required' => 'Tên Lớp Không Được Để Trống',
             'makhoa.required' => 'Mã Khoa Không Được Để Trống',
         ];
