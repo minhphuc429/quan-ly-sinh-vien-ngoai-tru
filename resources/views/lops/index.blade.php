@@ -28,7 +28,7 @@
 
     <div class="row" style="margin-bottom: 20px; ">
         <div class="col-sm-2">
-            <a class="btn btn-info" href="{{ action('LopController@create') }}">Thêm Lớp</a>
+            <a class="btn btn-primary" href="{{ action('LopController@create') }}">Thêm Lớp</a>
         </div>
     </div>
 
@@ -62,7 +62,9 @@
                                 <td>{{ $lop->MaKhoa }}</td>
                                 <td>
                                     <a href="{{ route('lops.show', $lop->id) }}" class="btn btn-info">View</a>
-                                    <a href="{{ route('lops.edit', $lop->id) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('lops.edit', $lop->id) }}" class="btn btn-success">Edit</a>
+                                    <!-- Trigger the modal with a button -->
+                                    <button class="btn btn-danger ripple" data-id="{{$lop->id}}" data-name="{{$lop->TenLop}}" data-message="{{ $lop->TenLop }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
                             </tr>
                         @endforeach

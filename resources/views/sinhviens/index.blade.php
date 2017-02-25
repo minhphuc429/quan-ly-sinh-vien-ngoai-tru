@@ -28,7 +28,7 @@
 
     <div class="row" style="margin-bottom: 20px; ">
         <div class="col-sm-2">
-            <a class="btn btn-info" href="{{ action('SinhVienController@create') }}">Thêm Sinh Viên</a>
+            <a class="btn btn-primary" href="{{ action('SinhVienController@create') }}">Thêm Sinh Viên</a>
         </div>
     </div>
 
@@ -87,7 +87,9 @@
                                 <td>{{ $sinhvien->Email }}</td>
                                 <td>
                                     <a href="{{ action('SinhVienController@show', $sinhvien->id) }}" class="btn btn-info ripple">View Task</a>
-                                    <a href="{{ action('SinhVienController@edit', $sinhvien->id) }}" class="btn btn-primary ripple">Edit Task</a>
+                                    <a href="{{ action('SinhVienController@edit', $sinhvien->id) }}" class="btn btn-success ripple">Edit Task</a>
+                                    <!-- Trigger the modal with a button -->
+                                    <button class="btn btn-danger ripple" data-id="{{$sinhvien->id}}" data-name="{{$sinhvien->HoTen}}" data-message="{{ $sinhvien->HoTen }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
                             </tr>
                         @endforeach
