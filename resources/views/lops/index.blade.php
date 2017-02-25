@@ -61,8 +61,8 @@
                                 <td>{{ $lop->TenLop }}</td>
                                 <td>{{ $lop->MaKhoa }}</td>
                                 <td>
-                                    <a href="{{ route('lops.show', $lop->id) }}" class="btn btn-info">View</a>
-                                    <a href="{{ route('lops.edit', $lop->id) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('lops.show', $lop->id) }}" class="btn btn-info">Xem</a>
+                                    <a href="{{ route('lops.edit', $lop->id) }}" class="btn btn-success">Sửa</a>
                                     <!-- Trigger the modal with a button -->
                                     <button class="btn btn-danger ripple" data-id="{{$lop->id}}" data-name="{{$lop->TenLop}}" data-message="{{ $lop->TenLop }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>

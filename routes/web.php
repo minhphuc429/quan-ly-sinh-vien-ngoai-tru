@@ -41,9 +41,7 @@ Route::get('/home', 'HomeController@index');
 
         // Sinh Viên
         Route::resource('sinhviens', 'SinhVienController');
-        Route::resource('khoas', 'KhoaController', ['except' => [
-            'show',
-        ]]);
+        Route::resource('khoas', 'KhoaController');
         Route::resource('lops', 'LopController');
         Route::resource('ngoaitrus', 'NgoaiTruController');
 

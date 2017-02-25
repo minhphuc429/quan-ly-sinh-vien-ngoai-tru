@@ -93,8 +93,9 @@ class LopController extends Controller
     public function edit($id)
     {
         $lop = Lop::findOrfail($id);
+        $khoas = Khoa::all();
 
-        return view('lops.edit')->with('lop', $lop);
+        return view('lops.edit')->with(['khoas' => $khoas, 'lop' => $lop]);
     }
 
     /**

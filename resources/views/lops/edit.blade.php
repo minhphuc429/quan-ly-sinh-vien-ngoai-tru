@@ -22,41 +22,52 @@
         </div>
     @endif
 
-    <form action="{{ route('lops.update', $lop->id) }}" method="POST" role="form">
-        {{ method_field('PATCH') }}
-        {{ csrf_field() }}
-        <legend>Form title</legend>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Cập Nhật Thông Tin Lớp</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" action="{{ action('LopController@update', $lop->id) }}" method="POST">
+                    {{ method_field('PATCH') }}
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="malop" class="col-md-2 control-label">Mã Lớp</label>
 
-        <div class="form-group">
-            <label for="malop" class="col-md-2 control-label">Mã Lớp</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="malop" name="malop" placeholder="" value="@if(old('malop')){{ old('malop') }}@else{{ $lop->MaLop }}@endif">
+                        </div>
+                    </div>
 
-            <div class="col-md-10">
-                <input type="text" class="form-control" id="malop" name="malop" placeholder="" value="@if(old('malop')){{ old('malop') }}@else{{ $lop->MaLop }}@endif">
+                    <div class="form-group">
+                        <label for="tenlop" class="col-md-2 control-label">Tên Lớp</label>
+
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="tenlop" name="tenlop" placeholder="" value="@if(old('tenlop')){{ old('tenlop') }}@else{{ $lop->TenLop }}@endif">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="makhoa" class="col-md-2 control-label">Mã Khoa</label>
+
+                        <div class="col-md-10">
+                            <select id="makhoa" name="makhoa" class="form-control">
+                                @foreach($khoas as $khoa)
+                                    <option value="{{$khoa->MaKhoa}}">{{$khoa->TenKhoa}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <a href="{{ route('lops.index') }}" class="btn btn-default">Hủy</a>
+                        <button type="submit" class="btn btn-success pull-right">Cập Nhật</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="tenlop" class="col-md-2 control-label">Tên Lớp</label>
-
-            <div class="col-md-10">
-                <input type="text" class="form-control" id="tenlop" name="tenlop" placeholder="" value="@if(old('tenlop')){{ old('tenlop') }}@else{{ $lop->TenLop }}@endif">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="makhoa" class="col-md-2 control-label">Mã Khoa</label>
-
-            <div class="col-md-10">
-                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $lop->MaKhoa }}@endif">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2">
-                <a href="{{ route('lops.index') }}" class="btn btn-default">Back</a>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </form>
+    </div>
 @endsection

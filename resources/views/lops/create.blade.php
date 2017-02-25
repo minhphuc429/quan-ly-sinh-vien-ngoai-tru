@@ -51,7 +51,6 @@
                             <label for="makhoa" class="col-md-2 control-label">Mã Khoa</label>
 
                             <div class="col-sm-10">
-                                {{--<input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="">--}}
                                 <select id="makhoa" name="makhoa" class="form-control">
                                     @foreach($khoas as $khoa)
                                         <option value="{{$khoa->MaKhoa}}">{{$khoa->TenKhoa}}</option>

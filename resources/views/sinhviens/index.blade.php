@@ -86,8 +86,8 @@
                                 <td>{{ $sinhvien->DienThoai }}</td>
                                 <td>{{ $sinhvien->Email }}</td>
                                 <td>
-                                    <a href="{{ action('SinhVienController@show', $sinhvien->id) }}" class="btn btn-info ripple">View Task</a>
-                                    <a href="{{ action('SinhVienController@edit', $sinhvien->id) }}" class="btn btn-success ripple">Edit Task</a>
+                                    <a href="{{ action('SinhVienController@show', $sinhvien->id) }}" class="btn btn-info ripple">Xem</a>
+                                    <a href="{{ action('SinhVienController@edit', $sinhvien->id) }}" class="btn btn-success ripple">Sửa</a>
                                     <!-- Trigger the modal with a button -->
                                     <button class="btn btn-danger ripple" data-id="{{$sinhvien->id}}" data-name="{{$sinhvien->HoTen}}" data-message="{{ $sinhvien->HoTen }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
