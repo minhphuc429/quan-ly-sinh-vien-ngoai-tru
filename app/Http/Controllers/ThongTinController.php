@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ThongTinController extends Controller
 {
@@ -45,7 +46,9 @@ class ThongTinController extends Controller
      */
     public function show($id)
     {
-        //
+        /*$sinhvien = User::findOrFail($id)->sinhvien;
+        return var_dump($sinhvien);*/
+        return view('thongtins.show')->with('id', $id);
     }
 
     /**

@@ -35,7 +35,7 @@ Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\Re
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['middleware' => 'role:admin'], function () {
+/*Route::group(['middleware' => 'role:admin'], function () {*/
 
     Route::group(['prefix' => 'admin'], function () {
 
@@ -52,4 +52,8 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('permissions', 'PermissionController');
         Route::resource('users', 'UserController');
     });
+/*});*/
+
+Route::group(['prefix' => 'home'], function () {
+    Route::resource('thongtins', 'ThongTinController');
 });

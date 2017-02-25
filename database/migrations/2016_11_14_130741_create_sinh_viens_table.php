@@ -36,6 +36,9 @@ class CreateSinhViensTable extends Migration
 
             $table->index('MaLop');
 
+            $table->foreign('MaSV')->references('username')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
             $table->foreign('MaLop')->references('MaLop')->on('lops')
                 ->onUpdate('cascade')->onDelete('cascade');
         });

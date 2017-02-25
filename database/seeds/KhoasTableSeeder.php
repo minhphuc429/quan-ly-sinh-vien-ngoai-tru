@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Khoa;
+use App\Lop;
+use App\SinhVien;
 
 class KhoasTableSeeder extends Seeder
 {
@@ -96,6 +98,52 @@ class KhoasTableSeeder extends Seeder
 
         foreach ($khoas as $khoa) {
             Khoa::create($khoa);
+        }
+
+        /* Lớp */
+        $lops = [
+            [
+                'MaLop'  => 'CT14A1.11',
+                'TenLop' => 'CT14A1.11',
+                'MaKhoa' => '480201',
+            ],
+            [
+                'MaLop'  => 'CT14A1.12',
+                'TenLop' => 'CT14A1.12',
+                'MaKhoa' => '480201',
+            ],
+        ];
+
+        foreach ($lops as $lop) {
+            Lop::create($lop);
+        }
+
+        /* Sinh Viên */
+        $sinhviens = [
+            [
+                'MaSV'      => '33639',
+                'HoTen'     => 'Lê Minh Danh',
+                'GioiTinh'  => 1,
+                'NgaySinh'  => '1996-09-08',
+                'DiaChi'    => 'Tổ 5 - Thôn 10 Tiên Lãnh - Tiên Phước - Quảng Nam',
+                'MaLop'     => 'CT14A1.11',
+                'DienThoai' => '1629255284',
+                'Email'     => '33639@donga.edu.vn',
+            ],
+            [
+                'MaSV'      => '34213',
+                'HoTen'     => 'Nguyễn Văn Đạt',
+                'GioiTinh'  => 1,
+                'NgaySinh'  => '1996-10-20',
+                'DiaChi'    => 'Thôn Tích Phú Đại Hiệp - Đại Lộc - Quảng Nam',
+                'MaLop'     => 'CT14A1.11',
+                'DienThoai' => '01262.781.926',
+                'Email'     => '34213@donga.edu.vn',
+            ],
+        ];
+
+        foreach ($sinhviens as $sinhvien) {
+            SinhVien::create($sinhvien);
         }
     }
 }

@@ -38,7 +38,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat ripple">Profile</a>
+                                    <a href="{{ action('ThongTinController@show', Auth::user()->id) }}" class="btn btn-default btn-flat ripple">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat ripple" onclick="event.preventDefault();

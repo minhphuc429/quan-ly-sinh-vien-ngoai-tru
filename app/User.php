@@ -28,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function sinhvien()
+    {
+        return $this->hasOne('App\SinhVien', 'sinh_viens_masv_foreign');
+    }
 }

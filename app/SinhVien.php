@@ -8,7 +8,10 @@ class SinhVien extends Model
 {
     protected $table = 'sinh_viens';
 
-    //protected $dates = 'NgaySinh';
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function lop()
     {
