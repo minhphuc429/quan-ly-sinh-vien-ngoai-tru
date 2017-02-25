@@ -167,7 +167,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ action('SinhVienController@index') }}" class="btn btn-default">Trở về</a>
+                        <a href="{{ action('SinhVienController@index') }}" class="btn btn-default">Trở lại</a>
                         <button type="submit" class="btn btn-success pull-right">Thêm</button>
                     </div>
                     <!-- /.box-footer -->
