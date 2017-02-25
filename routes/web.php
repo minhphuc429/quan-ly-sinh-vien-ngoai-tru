@@ -47,7 +47,9 @@ Route::get('/home', 'HomeController@index');
 
         // User Manager
         Route::resource('roles', 'RoleController');
-        Route::resource('permissions', 'PermissionController');
+        Route::resource('permissions', 'PermissionController', ['except' => [
+            'show'
+        ]]);
         Route::resource('users', 'UserController');
     });
 /*});*/

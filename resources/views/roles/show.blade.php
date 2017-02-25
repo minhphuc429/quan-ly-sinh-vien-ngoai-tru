@@ -47,7 +47,7 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="{{ action('RoleController@index') }}" class="btn btn-primary pull-left"><b>Back</b></a>
+                    <a href="{{ action('RoleController@index') }}" class="btn btn-primary pull-left ripple"><b>Back</b></a>
                 </div>
                 <!-- /.box -->
             </div>

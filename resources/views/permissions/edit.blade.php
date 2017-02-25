@@ -41,6 +41,7 @@
                                 <input type="text" class="form-control" id="name" name="name" value="@if(old('name')){{ old('name') }}@else{{ $permission->name }}@endif">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="displayname" class="col-sm-2 control-label">Display Name</label>
 
@@ -48,6 +49,7 @@
                                 <input type="text" class="form-control" id="displayname" name="displayname" value="@if(old('displayname')){{ old('displayname') }}@else{{ $permission->display_name }}@endif">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="description" class="col-sm-2 control-label">Description</label>
 

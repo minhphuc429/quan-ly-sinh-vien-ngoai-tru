@@ -30,28 +30,37 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ action('KhoaController@store') }}" method="POST">
+                <form class="form-horizontal" action="{{ action('PermissionController@store') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="480201" value="@if(old('makhoa')){{ old('makhoa') }}@endif">
+                                <input type="text" class="form-control" id="name" name="name" value="@if(old('name')){{ old('name') }}@endif">
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
+                            <label for="displayname" class="col-sm-2 control-label">Display Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="Công nghệ thông tin" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@endif">
+                                <input type="text" class="form-control" id="displayname" name="displayname" value="@if(old('displayname')){{ old('displayname') }}@endif">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">Description</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="description" name="description" value="@if(old('description')){{ old('description') }}@endif">
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('khoas.index') }}" class="btn btn-default">Trở lại</a>
-                        <button type="submit" class="btn btn-success pull-right">Thêm</button>
+                        <a href="{{ route('permissions.index') }}" class="btn btn-default ripple">Trở lại</a>
+                        <button type="submit" class="btn btn-success pull-right ripple">Thêm</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>
