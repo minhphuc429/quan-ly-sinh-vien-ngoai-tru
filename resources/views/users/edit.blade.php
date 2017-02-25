@@ -51,7 +51,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('khoas.index') }}" class="btn btn-default">Hủy</a>
+                        <a href="{{ route('khoas.index') }}" class="btn btn-default">Trở về</a>
                         <button type="submit" class="btn btn-success pull-right">Cập Nhật</button>
                     </div>
                     <!-- /.box-footer -->

@@ -132,7 +132,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'name'         => 'required|unique:roles,name|max:255',
+            'name'         => 'required|max:255',
             'display_name' => 'required|max:255',
             'description'  => 'required|max:255',
             'permissions'  => 'required',
@@ -167,7 +167,7 @@ class RoleController extends Controller
             $role->attachPermission($permissions);
         }
 
-        return redirect()->back()->with('status', 'Role Được Tạo Thành Công');
+        return redirect()->back()->with('status', 'Role Được Cập Nhật Thành Công');
     }
 
     /**

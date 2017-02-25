@@ -75,7 +75,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('roles.index') }}" class="btn btn-warning ripple">Hủy</a>
+                        <a href="{{ route('roles.index') }}" class="btn btn-warning ripple">Trở về</a>
                         <button type="submit" class="btn btn-success pull-right ripple">Thêm</button>
                     </div>
                     <!-- /.box-footer -->

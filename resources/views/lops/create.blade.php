@@ -61,7 +61,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ action('LopController@index') }}" class="btn btn-default">Hủy</a>
+                        <a href="{{ action('LopController@index') }}" class="btn btn-default">Trở về</a>
                         <button type="submit" class="btn btn-success pull-right">Thêm</button>
                     </div>
                     <!-- /.box-footer -->
