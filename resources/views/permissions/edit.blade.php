@@ -58,8 +58,8 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('permissions.index') }}" class="btn btn-default">Cancel</a>
-                        <button type="submit" class="btn btn-success pull-right">Update</button>
+                        <a href="{{ route('permissions.index') }}" class="btn btn-default ripple">Cancel</a>
+                        <button type="submit" class="btn btn-success pull-right ripple">Update</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\Permission;
-use DB;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Validator;
 
 class RoleController extends Controller
 {
@@ -28,7 +30,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $permissions = Permission::all();
+
+        return view('roles.create')->with('permissions', $permissions);
     }
 
     /**
@@ -39,7 +43,40 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name'         => 'required|unique:roles,name|max:255',
+            'display_name' => 'required|max:255',
+            'description'  => 'required|max:255',
+            'permissions'  => 'required',
+        ];
+
+        $messages = [
+            'name.required'         => 'Chưa nhập Name',
+            'display_name.required' => 'Chưa nhập Display Name',
+            'description.required'  => 'Chưa nhập mã Description',
+            'permissions.required'  => 'Chưa nhập Permission',
+
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect(route('roles.create'))
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $role = new Role();
+        $role->name = $request->name;
+        $role->display_name = $request->display_name;
+        $role->description = $request->description;
+        $role->save();
+
+        foreach ($request->permissions as $permissions) {
+            $role->attachPermission($permissions);
+        }
+
+        return redirect()->back()->with('status', 'Role Được Tạo Thành Công');
     }
 
     /**
@@ -55,7 +92,13 @@ class RoleController extends Controller
             ->where("permission_role.role_id", $id)
             ->get();
 
-        return view('roles.show', compact('role', 'rolePermissions'));
+        /*return view('roles.show', compact('role', 'rolePermissions'));*/
+
+        return view('roles.show')->with(
+            [
+                'role'            => $role,
+                'rolePermissions' => $rolePermissions,
+            ]);
     }
 
     /**
@@ -67,11 +110,16 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
-        $permission = Permission::get();
-        $rolePermissions = DB::table("permission_role")->where("permission_role.role_id", $id)
-            ->lists('permission_role.permission_id', 'permission_role.permission_id');
+        $permissions = Permission::all();
+        /*$rolePermissions = DB::table("permission_role")->where("permission_role.role_id", $id)
+            ->lists('permission_role.permission_id', 'permission_role.permission_id');*/
 
-        return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
+        return view('roles.edit')->with(
+            [
+                'role'            => $role,
+                'permissions'     => $permissions,
+                /*'rolePermissions' => $rolePermissions,*/
+            ]);
     }
 
     /**
@@ -83,7 +131,43 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'name'         => 'required|unique:roles,name|max:255',
+            'display_name' => 'required|max:255',
+            'description'  => 'required|max:255',
+            'permissions'  => 'required',
+        ];
+
+        $messages = [
+            'name.required'         => 'Chưa nhập Name',
+            'display_name.required' => 'Chưa nhập Display Name',
+            'description.required'  => 'Chưa nhập mã Description',
+            'permissions.required'  => 'Chưa nhập Permission',
+
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect(route('roles.create'))
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $role = Role::find($id);
+        $role->name = $request->name;
+        $role->display_name = $request->display_name;
+        $role->description = $request->description;
+        $role->save();
+
+        DB::table("permission_role")->where("permission_role.role_id",$id)
+            ->delete();
+
+        foreach ($request->permissions as $permissions) {
+            $role->attachPermission($permissions);
+        }
+
+        return redirect()->back()->with('status', 'Role Được Tạo Thành Công');
     }
 
     /**

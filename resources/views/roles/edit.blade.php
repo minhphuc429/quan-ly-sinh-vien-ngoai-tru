@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Cập Nhật Khoa')
+@section('title', 'Update Role')
 
-@section('content-header', 'Khoa')
+@section('content-header', 'Role')
 
 @section('content')
 
@@ -26,26 +26,51 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cập Nhật Thông Tin Khoa</h3>
+                    <h3 class="box-title">Update Role</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ action('KhoaController@update', $khoa->id) }}" method="POST">
+                <form class="form-horizontal" action="{{ action('RoleController@update', $role->id) }}" method="POST">
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="CNTT" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
+                                <input type="text" class="form-control" id="name" name="name" value="@if(old('name')){{ old('name') }}@else{{ $role->name }}@endif">
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
+                            <label for="display_name" class="col-sm-2 control-label">Display Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="CNTT" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
+                                <input type="text" class="form-control" id="display_name" name="display_name" value="@if(old('display_name')){{ old('display_name') }}@else{{ $role->display_name }}@endif">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">Description</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="description" name="description" value="@if(old('description')){{ old('description') }}@else{{ $role->description }}@endif">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="permissions[]" class="col-sm-2 control-label">Display Name</label>
+
+                            <div class="col-sm-10">
+                                @foreach($permissions as $permission)
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="permissions[]" value="{{ $permission->id }}">
+                                            {{ $permission->display_name }}
+                                        </label>
+                                    </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
