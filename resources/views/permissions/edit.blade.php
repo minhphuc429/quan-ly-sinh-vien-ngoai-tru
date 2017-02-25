@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Cập Nhật Khoa')
+@section('title', 'Update Permission')
 
-@section('content-header', 'Khoa')
+@section('content-header', 'Permission')
 
 @section('content')
 
@@ -26,33 +26,40 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cập Nhật Thông Tin Khoa</h3>
+                    <h3 class="box-title">Update Permission</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ action('KhoaController@update', $khoa->id) }}" method="POST">
+                <form class="form-horizontal" action="{{ action('PermissionController@update', $permission->id) }}" method="POST">
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="CNTT" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
+                                <input type="text" class="form-control" id="name" name="name" value="@if(old('name')){{ old('name') }}@else{{ $permission->name }}@endif">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
+                            <label for="displayname" class="col-sm-2 control-label">Display Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="CNTT" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
+                                <input type="text" class="form-control" id="displayname" name="displayname" value="@if(old('displayname')){{ old('displayname') }}@else{{ $permission->display_name }}@endif">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">Description</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="description" name="description" value="@if(old('description')){{ old('description') }}@else{{ $permission->description }}@endif">
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('khoas.index') }}" class="btn btn-default">Hủy</a>
-                        <button type="submit" class="btn btn-success pull-right">Cập Nhật</button>
+                        <a href="{{ route('permissions.index') }}" class="btn btn-default">Cancel</a>
+                        <button type="submit" class="btn btn-success pull-right">Update</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>
