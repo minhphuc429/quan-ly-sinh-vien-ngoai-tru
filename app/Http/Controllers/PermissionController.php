@@ -142,7 +142,7 @@ class PermissionController extends Controller
         $permission = Permission::findOrFail($id);
         $permission->delete();
 
-        /*return redirect()->route('permissions.index')->with('status', 'Xóa Thông Tin Sinh Viên Thành Công');*/
+        /*return redirect()->route('permissions.index')->with('status', 'Xóa Permission Thành Công');*/
         return response()->json();
     }
 }

@@ -178,6 +178,10 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::findOrfail($id);
+        $role->delete();
+
+        /*return redirect()->route('khoas.index')->with('status', 'Xóa Role Thành Công');*/
+        return response()->json();
     }
 }
