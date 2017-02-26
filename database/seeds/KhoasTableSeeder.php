@@ -119,31 +119,17 @@ class KhoasTableSeeder extends Seeder
         }
 
         /* Sinh Viên */
-        $sinhviens = [
-            [
-                'MaSV'      => '33639',
-                'HoTen'     => 'Lê Minh Danh',
-                'GioiTinh'  => 1,
-                'NgaySinh'  => '1996-09-08',
-                'DiaChi'    => 'Tổ 5 - Thôn 10 Tiên Lãnh - Tiên Phước - Quảng Nam',
+        for ($i = 33200; $i <= 33250; $i++) {
+            DB::table('sinh_viens')->insert([
+                'MaSV'      => $i,
                 'MaLop'     => 'CT14A1.11',
-                'DienThoai' => '1629255284',
-                'Email'     => '33639@donga.edu.vn',
-            ],
-            [
-                'MaSV'      => '34213',
-                'HoTen'     => 'Nguyễn Văn Đạt',
                 'GioiTinh'  => 1,
-                'NgaySinh'  => '1996-10-20',
-                'DiaChi'    => 'Thôn Tích Phú Đại Hiệp - Đại Lộc - Quảng Nam',
-                'MaLop'     => 'CT14A1.11',
-                'DienThoai' => '01262.781.926',
-                'Email'     => '34213@donga.edu.vn',
-            ],
-        ];
-
-        foreach ($sinhviens as $sinhvien) {
-            SinhVien::create($sinhvien);
+                'NgaySinh'  => Carbon::createFromTimestamp(rand(Carbon::now()->subYears(21)->timestamp, Carbon::now()->subYears(22)->timestamp))->format('Y-m-d H:i:s'),
+                'NoiSinh'   => '',
+                'DanToc'    => '',
+                'DiaChi'    => '',
+                'DienThoai' => '',
+            ]);
         }
     }
 }

@@ -143,7 +143,6 @@ class RoleController extends Controller
             'display_name.required' => 'Chưa nhập Display Name',
             'description.required'  => 'Chưa nhập mã Description',
             'permissions.required'  => 'Chưa nhập Permission',
-
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);

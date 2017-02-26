@@ -36,8 +36,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">
-                        Danh Sách Khoa </h3>
+                    <h3 class="box-title">Danh Sách Sinh Viên</h3>
                 </div>
 
                 <div class="box-body">
@@ -50,12 +49,6 @@
                             <th>Ngày Sinh</th>
                             <!-- <th>Dân Tộc</th> -->
                             <th>Địa Chỉ</th>
-                            <!-- <th>CMND</th>
-                            <th>Ngày Cấp</th>
-                            <th>Nơi Cấp</th>
-                            <th>Khóa</th>
-                            <th>Ngành</th>
-                            <th>Bậc</th> -->
                             <th>Lớp</th>
                             <th>Điện Thoại</th>
                             <th>Email</th>
@@ -76,12 +69,6 @@
                                 <td>{{ $sinhvien->NgaySinh }}</td>
                                 <!-- <td>{{ $sinhvien->DanToc }}</td> -->
                                 <td>{{ $sinhvien->DiaChi }}</td>
-                                <!-- <td>{{ $sinhvien->CMND }}</td>
-                                <td>{{ $sinhvien->NgayCap }}</td>
-                                <td>{{ $sinhvien->NoiCap }}</td>
-                                <td>{{ $sinhvien->Khoa }}</td>
-                                <td>{{ $sinhvien->Nganh }}</td>
-                                <td>{{ $sinhvien->Bac }}</td> -->
                                 <td>{{ $sinhvien->MaLop }}</td>
                                 <td>{{ $sinhvien->DienThoai }}</td>
                                 <td>{{ $sinhvien->Email }}</td>
@@ -102,12 +89,6 @@
                             <th>Ngày Sinh</th>
                             <!-- <th>Dân Tộc</th> -->
                             <th>Địa Chỉ</th>
-                            <!-- <th>CMND</th>
-                            <th>Ngày Cấp</th>
-                            <th>Nơi Cấp</th>
-                            <th>Khóa</th>
-                            <th>Ngành</th>
-                            <th>Bậc</th> -->
                             <th>Lớp</th>
                             <th>Điện Thoại</th>
                             <th>Email</th>
