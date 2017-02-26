@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'password',
     ];
 
     /**
@@ -31,6 +31,6 @@ class User extends Authenticatable
 
     public function sinhvien()
     {
-        return $this->hasOne('App\SinhVien', 'sinh_viens_masv_foreign');
+        return $this->hasOne('App\SinhVien');
     }
 }

@@ -19,8 +19,6 @@ class CreateLopsTable extends Migration
             $table->string('TenLop');
             $table->string('MaKhoa');
 
-            $table->timestamps();
-
             $table->index('MaKhoa');
 
             $table->foreign('MaKhoa')->references('MaKhoa')->on('khoas')
