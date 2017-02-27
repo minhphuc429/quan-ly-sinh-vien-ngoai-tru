@@ -39,10 +39,10 @@
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="tensv" class="col-md-2 control-label">Tên Sinh Viên</label>
+                            <label for="name" class="col-md-2 control-label">Họ Tên</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="tensv" name="tensv" value="{{ old('tensv') }}">
+                                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                             </div>
                         </div>
 

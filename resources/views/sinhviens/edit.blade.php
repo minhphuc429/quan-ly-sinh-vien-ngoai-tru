@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
+@section('title', 'Cập Nhật Thông Tin')
+
 @section('stylesheet')
     <!-- Bootstrap datepicker -->
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-datepicker.min.css') }}">
 @endsection
+
+@section('content-header', 'Sinh Viên')
 
 @section('content')
 
@@ -27,7 +31,7 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cập Nhật Thông Tin Sinh Viên</h3>
+                    <h3 class="box-title">Cập Nhật Thông Tin</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -36,124 +40,69 @@
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="tensv" class="col-md-2 control-label">Tên Sinh Viên</label>
+                            <label for="name" class="col-md-2 control-label">Họ Tên</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="tensv" name="tensv" placeholder="Nguyễn Minh Phúc" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->HoTen }}@endif">
+                                <input type="text" class="form-control" name="name" value="@if(old('name')){{ old('name') }}@else{{ $user->name }}@endif">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="idsv" class="col-md-2 control-label">ID Sinh Viên</label>
+                            <label for="MaSV" class="col-md-2 control-label">Mã SV</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="idsv" name="idsv" placeholder="33205" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->MaSV }}@endif">
+                                <input type="text" class="form-control" name="MaSV" value="@if(old('MaSV')){{ old('MaSV') }}@else{{ $sinhvien->MaSV }}@endif">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="gioitinh" class="col-md-2 control-label">Giới Tính</label>
+                            <label for="MaLop" class="col-md-2 control-label">Mã Lớp</label>
+
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="MaLop" value="@if(old('MaLop')){{ old('MaLop') }}@else{{ $sinhvien->MaLop }}@endif">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="GioiTinh" class="col-md-2 control-label">Giới Tính</label>
 
                             <div class="col-md-10 radio">
-                                <label> <input type="radio" name="gioitinh" id="nam" value="1" checked="checked">Nam </label>
+                                <label> <input type="radio" name="GioiTinh" id="male" value="1"
+                                    @if ( $sinhvien->GioiTinh ) {!! 'checked' !!} @endif>Nam </label>
 
-                                <label> <input type="radio" name="gioitinh" id="nu" value="0">Nữ </label>
+                                <label> <input type="radio" name="GioiTinh" id="female" value="0" @if ( !$sinhvien->GioiTinh ) {!! 'checked' !!} @endif>Nữ </label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="ngaysinh" class="col-md-2 control-label">Ngày Sinh</label>
+                            <label for="NgaySinh" class="col-md-2 control-label">Ngày Sinh</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="ngaysinh" name="ngaysinh" placeholder="" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->NgaySinh }}@endif">
+                                <input type="text" class="form-control" id="NgaySinh" name="NgaySinh" value="@if(old('NgaySinh')){{ old('NgaySinh') }}@else{{ $sinhvien->NgaySinh }}@endif">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="diachi" class="col-md-2 control-label">Địa Chỉ</label>
+                            <label for="DiaChi" class="col-md-2 control-label">Địa Chỉ</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Quảng Nam" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->DiaChi }}@endif">
-                            </div>
-                        </div>
-
-                        <!-- <div class="form-group">
-                            <label for="dantoc" class="col-md-2 control-label">Dân Tộc</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="dantoc" name="dantoc" placeholder="Kinh">
+                                <input type="text" class="form-control" name="DiaChi" value="@if(old('DiaChi')){{ old('DiaChi') }}@else{{ $sinhvien->DiaChi }}@endif">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="cmnd" class="col-md-2 control-label">CMND</label>
+                            <label for="DienThoai" class="col-md-2 control-label">Điện Thoại</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="cmnd" name="cmnd" placeholder="Nguyễn Minh Phúc">
+                                <input type="text" class="form-control" name="DienThoai" value="@if(old('DienThoai')){{ old('DienThoai') }}@else{{ $sinhvien->DienThoai }}@endif">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="ngaycap" class="col-md-2 control-label">Ngày Cấp</label>
+                            <label for="email" class="col-md-2 control-label">Họ Tên</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="ngaycap" name="ngaycap" placeholder="Nguyễn Minh Phúc">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="noicap" class="col-md-2 control-label">Nơi Cấp</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="noicap" name="noicap" placeholder="Quảng Nam">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="khoa" class="col-md-2 control-label">Khóa</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="khoa" name="khoa" placeholder="2014 - 2018">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nganh" class="col-md-2 control-label">Ngành</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="nganh" name="nganh" placeholder="Công nghệ phần mềm">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bac">Bậc</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="bac" name="bac" placeholder="Đại học chính quy">
-                            </div>
-                        </div> -->
-
-                        <div class="form-group">
-                            <label for="lop" class="col-md-2 control-label">Lớp</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="lop" name="lop" placeholder="CT14A.11" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->MaLop }}@endif">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="dt" class="col-md-2 control-label">Điện Thoại</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="sdt" name="sdt" placeholder="01272070675" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->DienThoai }}@endif">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="col-md-2 control-label">Email</label>
-
-                            <div class="col-md-10">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="minhphuc429@gmail.com" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->Email }}@endif">
+                                <input type="text" class="form-control" name="email" value="@if(old('email')){{ old('email') }}@else{{ $user->email }}@endif">
                             </div>
                         </div>
                     </div>
@@ -179,7 +128,7 @@
         $(function () {
 
             //Datemask dd/mm/yyyy
-            $("#ngaysinh").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+            $("#NgaySinh").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
         });
     </script>
 @endsection

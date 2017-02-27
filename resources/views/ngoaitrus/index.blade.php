@@ -73,7 +73,6 @@
                                 <td>{{ $ngoaitru->HTToTruong }} </td>
                                 <td>{{ $ngoaitru->DTToTruong }} </td>
                                 <td>
-                                    <a href="{{ route('ngoaitrus.show', $ngoaitru->id) }}" class="btn btn-info ripple">Xem</a>
                                     <a href="{{ route('ngoaitrus.edit', $ngoaitru->id) }}" class="btn btn-success ripple">Sửa</a>
                                     <!-- Trigger the modal with a button -->
                                     <button class="btn btn-danger ripple" data-id="{{$ngoaitru->id}}" data-name="{{$ngoaitru->id}}" data-message="{{ $ngoaitru->MaSV }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>

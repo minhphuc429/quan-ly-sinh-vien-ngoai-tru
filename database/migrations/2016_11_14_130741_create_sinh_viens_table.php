@@ -15,7 +15,6 @@ class CreateSinhViensTable extends Migration
     {
         Schema::create('sinh_viens', function (Blueprint $table) {
             $table->increments('id');
-            /*$table->string('HoTen');*/
             $table->string('MaSV')->unique();
             $table->string('MaLop');
             $table->boolean('GioiTinh')->nullable();
