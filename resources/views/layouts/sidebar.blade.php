@@ -8,7 +8,7 @@
                 @if(Auth::guest())
                     <img src="{{ asset('images/kyra.png') }}" class="img-rounded" alt="User Image">
                 @else
-                    <img src="{{ Gravatar::get(Auth::user()->email, 'default') }}" class="img-rounded" alt="User Image">
+                    <img src="http://cbgv.donga.edu.vn/QLSV/ANHSV/{{ Auth::user()->username }}.jpg" class="img-rounded" alt="User Image">
                 @endif
             </div>
             <div class="pull-left info">

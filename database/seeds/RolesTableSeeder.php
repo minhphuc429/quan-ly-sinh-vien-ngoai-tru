@@ -27,7 +27,7 @@ class RolesTableSeeder extends Seeder
         $sinhvien->save();
 
         // role attach alias
-        $user = User::where('username', '=', 'minhphuc429')->first();
+        $user = User::where('email', '=', '33205@donga.edu.vn')->first();
         $user->attachRole($admin); // parameter can be an Role object, array, or id
 
         $permission = [
