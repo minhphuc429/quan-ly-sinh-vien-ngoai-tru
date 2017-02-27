@@ -148,6 +148,7 @@ class LopController extends Controller
         $lop = Lop::findOrfail($id);
         $lop->delete();
 
-        return redirect(route('lops.index'))->with('status', 'Xóa Mã Lớp Thành Công');
+        //return redirect(route('lops.index'))->with('status', 'Xóa Mã Lớp Thành Công');
+        return response()->json();
     }
 }

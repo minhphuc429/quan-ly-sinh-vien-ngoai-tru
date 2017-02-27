@@ -42,7 +42,7 @@
                 <div class="box-body">
                     <table id="data-table" class="table table-bordered table-hover">
                         <thead>
-                        <tr>
+                        <tr >
                             <th>STT</th>
                             <th>Mã Lớp</th>
                             <th>Tên Lớp</th>
@@ -55,8 +55,8 @@
                             $i = 0;
                         @endphp
                         @foreach ($lops->all() as $lop)
-                            <tr>
-                                <td>{{ ++$i }}</td>
+                            <tr id="{{ $lop->id }}">
+                                <td>{{ $lop->id }}</td>
                                 <td>{{ $lop->MaLop }}</td>
                                 <td>{{ $lop->TenLop }}</td>
                                 <td>{{ $lop->MaKhoa }}</td>
@@ -82,6 +82,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="modal-delete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Xác nhận xóa?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Những Sinh Viên trong Lớp "<b class="message"></b>" cũng sẽ bị xóa.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default ripple" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-google ripple" data-id="">Đồng ý</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 @endsection
 
 @section('script')
@@ -97,6 +119,36 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": true
+            });
+
+            $('#modal-delete').on('show.bs.modal', function (e) {
+                var data = $(e.relatedTarget).data();
+                $('.message', this).text(data.message);
+                $('.btn-google', this).data('id', data.id);
+            });
+
+            $('.modal-footer').on('click', '.btn-google', function (e) {
+                e.preventDefault();
+                $(".btn-google").prop('disabled', true);
+                var id = $(this).data('id');
+
+                $.ajax({
+                    type: "post",
+                    url: '{{ action('LopController@index') }}' + '/' + id,
+                    data: {
+                        '_method': 'delete',
+                        '_token': "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('table#data-table tr#' + id).remove();
+                        $('#modal-delete').modal('toggle');
+                        $(".btn-google").prop('disabled', false);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
             });
         });
     </script>
