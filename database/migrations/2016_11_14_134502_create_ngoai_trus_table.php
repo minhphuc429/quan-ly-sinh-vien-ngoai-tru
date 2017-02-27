@@ -17,12 +17,12 @@ class CreateNgoaiTrusTable extends Migration
             $table->increments('id');
             $table->string('MaSV')->unique();
             $table->string('HTChuNha');
-            $table->string('DTChuNha');
             $table->string('SoNha');
             $table->string('Duong');
             $table->string('ToDanPho');
             $table->string('Phuong');
             $table->string('QuanHe');
+            $table->string('DTChuNha');
             $table->string('HTToTruong');
             $table->string('DTToTruong');
 

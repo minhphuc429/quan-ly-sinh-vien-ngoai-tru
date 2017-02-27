@@ -43,7 +43,9 @@ Route::get('/home', 'HomeController@index');
         Route::resource('sinhviens', 'SinhVienController');
         Route::resource('khoas', 'KhoaController');
         Route::resource('lops', 'LopController');
-        Route::resource('ngoaitrus', 'NgoaiTruController');
+        Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
+            'show'
+        ]]);
 
         // User Manager
         Route::resource('roles', 'RoleController');
