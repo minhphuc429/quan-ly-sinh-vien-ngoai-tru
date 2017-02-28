@@ -55,7 +55,7 @@ class UserController extends Controller
             'name.required'     => 'Chưa nhập Tên',
             'username.required' => 'Chưa nhập User Name',
             'email.required'    => 'Chưa nhập Email',
-            'password.required'    => 'Chưa nhập Password',
+            'password.required' => 'Chưa nhập Password',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -86,6 +86,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+
         return view('users.show')->with('user', $user);
     }
 
@@ -99,9 +100,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $roles = Role::all();
-        $userRole = $user->roles->all();
 
-        return view('users.edit', compact('user', 'roles', 'userRole'));
+        return view('users.edit')->with([
+            'user'  => $user,
+            'roles' => $roles,
+        ]);
     }
 
     /**
