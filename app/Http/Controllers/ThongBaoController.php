@@ -13,7 +13,7 @@ class ThongBaoController extends Controller
      */
     public function index()
     {
-        //
+        return view('thongbaos.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class ThongBaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('thongbaos.create');
     }
 
     /**

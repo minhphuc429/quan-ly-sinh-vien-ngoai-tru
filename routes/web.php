@@ -41,7 +41,9 @@ Route::get('/home', 'HomeController@index');
 
         // Sinh Viên
         Route::resource('sinhviens', 'SinhVienController');
-        Route::resource('khoas', 'KhoaController');
+        Route::resource('khoas', 'KhoaController', ['except' => [
+            'show'
+        ]]);
         Route::resource('lops', 'LopController', ['except' => [
             'show'
         ]]);
@@ -60,4 +62,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'home'], function () {
     Route::resource('thongtins', 'ThongTinController');
+
+    Route::resource('thongbaos', 'ThongBaoController');
 });
