@@ -94,7 +94,7 @@
                     <h4 class="modal-title">Xác nhận xóa?</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Những Sinh Viên trong Lớp "<b class="message"></b>" cũng sẽ bị xóa.</p>
+                    <p>Những Sinh Viên trong Khoa "<b class="message"></b>" cũng sẽ bị xóa.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default ripple" data-dismiss="modal">Hủy</button>

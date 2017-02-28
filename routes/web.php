@@ -35,9 +35,13 @@ Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\Re
 
 Route::get('/home', 'HomeController@index');
 
-/*Route::group(['middleware' => 'role:admin'], function () {*/
+Route::group(['middleware' => 'role:admin'], function () {
 
     Route::group(['prefix' => 'admin'], function () {
+
+        Route::resource('thongbaos', 'ThongBaoController');
+
+        Route::resource('thongtins', 'ThongTinController');
 
         // Sinh Viên
         Route::resource('sinhviens', 'SinhVienController');
@@ -58,10 +62,12 @@ Route::get('/home', 'HomeController@index');
         ]]);
         Route::resource('users', 'UserController');
     });
-/*});*/
+});
 
 Route::group(['prefix' => 'home'], function () {
-    Route::resource('thongtins', 'ThongTinController');
+    Route::get('thongtins', 'ThongTinController@index')->name('home.thongtins');
 
     Route::resource('thongbaos', 'ThongBaoController');
+
+    Route::get('ngoaitrus', 'NgoaiTruController@index')->name('home.ngoaitrus');
 });
