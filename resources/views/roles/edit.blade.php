@@ -65,7 +65,7 @@
                                 @foreach($permissions as $permission)
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="permissions[]" value="{{ $permission->id }}">
+                                            <input type="checkbox" name="permissions[]" value="{{ $permission->id }}" @if( $role->hasPermission($permission->name) ) {!! 'checked' !!} @endif>
                                             {{ $permission->display_name }}
                                         </label>
                                     </div>
