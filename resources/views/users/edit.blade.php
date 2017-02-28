@@ -80,7 +80,8 @@
                             <div class="col-sm-10">
                                 @foreach($roles as $role)
                                     <div class="checkbox">
-                                        <label> <input type="checkbox" name="roles[]" value="{{ $role->id }}" @if(Entrust::hasRole($role->name)) {!! 'checked' !!} @endif>
+                                        <label>
+                                            <input type="checkbox" name="roles[]" value="{{ $role->id }}" @if($user->hasRole($role->name)) {!! 'checked' !!} @endif>
                                             {{ $role->display_name }}
                                         </label>
                                     </div>
