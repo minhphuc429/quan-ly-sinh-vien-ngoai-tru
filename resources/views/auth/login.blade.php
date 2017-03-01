@@ -74,8 +74,12 @@
 <nav class="navbar navbar-default navbar-fixed">
     <div class="container">
         <div class="row">
+            {{--<div>
+                <img src="{{ asset('images/logo.png') }}" --}}{{--class="img-responsive"--}}{{-- alt="" --}}{{--style="margin: 0 auto"--}}{{-->
+                <img src="{{ asset('images/donga.png') }}" height="" width="">
+            </div>--}}
             <div class="col-md-7" style="text-align:center">
-                <img src="/images/da.png" height="" width="">
+                <img src="{{ asset('images/da.png') }}" height="" width="">
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -113,18 +117,19 @@
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
-                        <label> <input type="checkbox"> Duy trì trạng thái đăng nhập </label>
+                        {{--<label> <input type="checkbox"> Duy trì trạng thái đăng nhập </label>--}}
+                        <a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>
                     </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
-        <a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>
+        {{--<a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>--}}
 
     </div>
     <!-- /.login-box-body -->
@@ -133,7 +138,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">© 2017 Nguyễn Minh Phúc -
+        <p class="text-muted">© 2017 Quản Lý Sinh Viên Ngoại Trú -
             <a href="http://donga.edu.vn" target="_blank" style="color: #ffffff;">Trường Đại học Đông Á</a></p>
     </div>
 </footer>

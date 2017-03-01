@@ -39,15 +39,13 @@ class KhoaController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'makhoa'  => 'required|numeric|unique:khoas|digits:6',
+            'makhoa'  => 'required|unique:khoas|max:7',
             'tenkhoa' => 'required|unique:khoas|max:255',
         ];
 
         $messages = [
             'makhoa.required'  => 'Chưa nhập mã khoa',
-            'makhoa.numeric'   => 'Mã khoa chỉ được phép chứa số',
-            'makhoa.unique'    => 'Mã khoa đã tồn tại trước đó',
-            'makhoa.digits'    => 'Mã khoa độ dài 6 ký tự',
+            'makhoa.max'    => 'Mã khoa chỉ chứa tối đa 7 ký tự',
             'tenkhoa.required' => 'Chưa nhập tên khoa',
             'tenkhoa.unique'   => 'Tên khoa đã tồn tại trước đó',
             'tenkhoa.max'      => 'Tên khoa chỉ chứa tối đa 255 ký tự',
@@ -106,14 +104,13 @@ class KhoaController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'makhoa'  => 'required|numeric|digits:6',
+            'makhoa'  => 'required|max:7',
             'tenkhoa' => 'required|max:255',
         ];
 
         $messages = [
             'makhoa.required'  => 'Chưa nhập mã khoa',
-            'makhoa.numeric'   => 'Mã khoa chỉ được phép chứa số',
-            'makhoa.digits'    => 'Mã khoa độ dài 6 ký tự',
+            'makhoa.max'   => 'Mã khoa chỉ chứa tối đa 7 ký tự',
             'tenkhoa.required' => 'Chưa nhập tên khoa',
             'tenkhoa.max'      => 'Tên khoa chỉ chứa tối đa 255 ký tự',
         ];

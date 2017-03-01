@@ -35,25 +35,41 @@ Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\Re
 
 Route::get('/home', 'HomeController@index');
 
-/*Route::group(['middleware' => 'role:admin'], function () {*/
+Route::group(['middleware' => 'role:admin'], function () {
 
     Route::group(['prefix' => 'admin'], function () {
 
+        Route::resource('thongbaos', 'ThongBaoController');
+
+        Route::resource('thongtins', 'ThongTinController');
+
         // Sinh Viên
         Route::resource('sinhviens', 'SinhVienController');
-        Route::resource('khoas', 'KhoaController');
-        Route::resource('lops', 'LopController');
-        Route::resource('ngoaitrus', 'NgoaiTruController');
+        Route::resource('khoas', 'KhoaController', ['except' => [
+            'show',
+        ]]);
+        Route::resource('lops', 'LopController', ['except' => [
+            'show',
+        ]]);
+        Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
+            'show',
+        ]]);
 
         // User Manager
         Route::resource('roles', 'RoleController');
         Route::resource('permissions', 'PermissionController', ['except' => [
-            'show'
+            'show',
         ]]);
         Route::resource('users', 'UserController');
     });
-/*});*/
+});
 
 Route::group(['prefix' => 'home'], function () {
-    Route::resource('thongtins', 'ThongTinController');
+    Route::resource('thongtins', 'ThongTinController', ['except' => [
+        'index', 'create', 'store', 'destroy',
+    ]]);
+
+    Route::resource('thongbaos', 'ThongBaoController');
+
+    Route::resource('ngoaitrus', 'NgoaiTruController');
 });

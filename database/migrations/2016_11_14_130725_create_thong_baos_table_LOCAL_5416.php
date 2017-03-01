@@ -16,11 +16,12 @@ class CreateThongBaosTable extends Migration
         Schema::create('thong_baos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->longText('description');
-            $table->longText('noidung');
+            $table->string('slug');
+            $table->string('description');
+            $table->string('content');
 
             $table->timestamps();
-            $table->softDeletes();
+
         });
     }
 

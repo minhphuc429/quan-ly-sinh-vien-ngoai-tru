@@ -17,8 +17,6 @@ class CreateKhoasTable extends Migration
             $table->increments('id');
             $table->string('MaKhoa')->unique();
             $table->string('TenKhoa');
-
-            $table->timestamps();
         });
     }
 

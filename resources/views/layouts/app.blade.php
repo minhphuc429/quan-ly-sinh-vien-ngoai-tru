@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Đại Học Đông Á - @yield('title')</title>
-
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="{{ asset('adminlte/bootstrap/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->

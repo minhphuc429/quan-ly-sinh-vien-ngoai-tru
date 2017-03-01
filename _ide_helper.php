@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.13 on 2017-02-25.
+ * Generated for Laravel 5.4.13 on 2017-02-26.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11286,55 +11286,6 @@ namespace Zizaco\Entrust {
     }         
 }
     
-namespace Creativeorange\Gravatar\Facades {
-
-    class Gravatar {
-        
-        /**
-         * Override the default image fallback set in the config.
-         * 
-         * Can either be a public URL to an image or a valid themed image.
-         * For more info, visit http://en.gravatar.com/site/implement/images/#default-image
-         *
-         * @param string $fallback
-         * @return $this 
-         * @static 
-         */
-        public static function fallback($fallback)
-        {
-            return \Creativeorange\Gravatar\Gravatar::fallback($fallback);
-        }
-        
-        /**
-         * Check if Gravatar has an avatar for the given email address
-         *
-         * @param $email
-         * @return bool 
-         * @throws InvalidEmailException
-         * @static 
-         */
-        public static function exists($email)
-        {
-            return \Creativeorange\Gravatar\Gravatar::exists($email);
-        }
-        
-        /**
-         * Get the gravatar url
-         *
-         * @param $email
-         * @param string $configGroup
-         * @return string 
-         * @throws InvalidEmailException
-         * @static 
-         */
-        public static function get($email, $configGroup = 'default')
-        {
-            return \Creativeorange\Gravatar\Gravatar::get($email, $configGroup);
-        }
-        
-    }         
-}
-    
     
 namespace {
 
@@ -13336,8 +13287,6 @@ namespace {
         }
     
     class Entrust extends \Zizaco\Entrust\EntrustFacade {}
-    
-    class Gravatar extends \Creativeorange\Gravatar\Facades\Gravatar {}
     
 }
 

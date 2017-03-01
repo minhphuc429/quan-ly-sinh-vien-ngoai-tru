@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Thêm Khoa')
+@section('title', 'Thêm User')
 
-@section('content-header', 'Khoa')
+@section('content-header', 'User')
 
 @section('content')
 
@@ -26,31 +26,70 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Nhập Thông Tin Khoa</h3>
+                    <h3 class="box-title">Nhập Thông Tin User</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ action('KhoaController@store') }}" method="POST">
+                <form class="form-horizontal" action="{{ action('UserController@store') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="480201" value="@if(old('makhoa')){{ old('makhoa') }}@endif">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
+                            <label for="username" class="col-sm-2 control-label">User Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="Công nghệ thông tin" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@endif">
+                                <input type="text" class="form-control" name="username" value="{{ old('username') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password" class="col-sm-2 control-label">Confirm Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="confirm-password" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="roles[]" class="col-sm-2 control-label">Role</label>
+
+                            <div class="col-sm-10">
+                                @foreach($roles as $role)
+                                    <div class="checkbox">
+                                        <label> <input type="checkbox" name="roles[]" value="{{ $role->id }}" checked>
+                                            {{ $role->display_name }}
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('khoas.index') }}" class="btn btn-default">Trở lại</a>
+                        <a href="{{ route('users.index') }}" class="btn btn-default">Trở lại</a>
                         <button type="submit" class="btn btn-success pull-right">Thêm</button>
                     </div>
                     <!-- /.box-footer -->

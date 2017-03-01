@@ -111,14 +111,11 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $permissions = Permission::all();
-        /*$rolePermissions = DB::table("permission_role")->where("permission_role.role_id", $id)
-            ->lists('permission_role.permission_id', 'permission_role.permission_id');*/
 
         return view('roles.edit')->with(
             [
-                'role'            => $role,
-                'permissions'     => $permissions,
-                /*'rolePermissions' => $rolePermissions,*/
+                'role'        => $role,
+                'permissions' => $permissions,
             ]);
     }
 
@@ -159,7 +156,7 @@ class RoleController extends Controller
         $role->description = $request->description;
         $role->save();
 
-        DB::table("permission_role")->where("permission_role.role_id",$id)
+        DB::table("permission_role")->where("permission_role.role_id", $id)
             ->delete();
 
         foreach ($request->permissions as $permissions) {
@@ -181,6 +178,7 @@ class RoleController extends Controller
         $role->delete();
 
         /*return redirect()->route('khoas.index')->with('status', 'Xóa Role Thành Công');*/
+
         return response()->json();
     }
 }

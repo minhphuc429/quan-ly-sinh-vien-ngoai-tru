@@ -17,82 +17,112 @@ class KhoasTableSeeder extends Seeder
     {
         $khoas = [
             [
-                'MaKhoa'     => '480201',
-                'TenKhoa'    => 'Công nghệ thông tin',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C220113',
+                'TenKhoa' => 'Việt Nam học',
             ],
             [
-                'MaKhoa'     => '220201',
-                'TenKhoa'    => 'Ngôn Ngữ Anh',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C220201',
+                'TenKhoa' => 'Tiếng Anh',
             ],
             [
-                'MaKhoa'     => '340101',
-                'TenKhoa'    => 'Quản trị kinh doanh',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C340101',
+                'TenKhoa' => 'Quản trị kinh doanh',
             ],
             [
-                'MaKhoa'     => '340201',
-                'TenKhoa'    => 'Tài chính ngân hàng',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C340201',
+                'TenKhoa' => 'Tài chính ngân hàng',
             ],
             [
-                'MaKhoa'     => '340301',
-                'TenKhoa'    => 'Kế toán',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C340301',
+                'TenKhoa' => 'Kế toán',
             ],
             [
-                'MaKhoa'     => '340404',
-                'TenKhoa'    => 'Quản trị nhân lực',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C340404',
+                'TenKhoa' => 'Quản trị nhân lực',
             ],
             [
-                'MaKhoa'     => '340406',
-                'TenKhoa'    => 'Quản trị văn phòng',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C340406',
+                'TenKhoa' => 'Quản trị văn phòng',
             ],
             [
-                'MaKhoa'     => '380107',
-                'TenKhoa'    => 'Luật kinh tế',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C380107',
+                'TenKhoa' => 'Luật kinh tế',
             ],
             [
-                'MaKhoa'     => '510103',
-                'TenKhoa'    => 'Công nghệ kỹ thuật xây dựng',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C480201',
+                'TenKhoa' => 'Công nghệ thông tin',
             ],
             [
-                'MaKhoa'     => '510301',
-                'TenKhoa'    => 'Công nghệ kỹ thuật điện điện tử',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C510103',
+                'TenKhoa' => 'Công nghệ kỹ thuật xây dựng',
             ],
             [
-                'MaKhoa'     => '540101',
-                'TenKhoa'    => 'Công nghệ thực phẩm',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C510301',
+                'TenKhoa' => 'Công nghệ kỹ thuật điện điện tử',
             ],
             [
-                'MaKhoa'     => '580102',
-                'TenKhoa'    => 'Kiến trúc',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C540101',
+                'TenKhoa' => 'Công nghệ thực phẩm',
             ],
             [
-                'MaKhoa'     => '720501',
-                'TenKhoa'    => 'Điều dưỡng',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'MaKhoa'  => 'C580102',
+                'TenKhoa' => 'Kiến trúc',
+            ],
+            [
+                'MaKhoa'  => 'C720501',
+                'TenKhoa' => 'Điều dưỡng',
+            ],
+            [
+                'MaKhoa'  => 'D220201',
+                'TenKhoa' => 'Ngôn Ngữ Anh',
+            ],
+            [
+                'MaKhoa'  => 'D340101',
+                'TenKhoa' => 'Quản trị kinh doanh',
+            ],
+            [
+                'MaKhoa'  => 'D340201',
+                'TenKhoa' => 'Tài chính ngân hàng',
+            ],
+            [
+                'MaKhoa'  => 'D340301',
+                'TenKhoa' => 'Kế toán',
+            ],
+            [
+                'MaKhoa'  => 'D340404',
+                'TenKhoa' => 'Quản trị nhân lực',
+            ],
+            [
+                'MaKhoa'  => 'D340406',
+                'TenKhoa' => 'Quản trị văn phòng',
+            ],
+            [
+                'MaKhoa'  => 'D380107',
+                'TenKhoa' => 'Luật kinh tế',
+            ],
+            [
+                'MaKhoa'  => 'D480201',
+                'TenKhoa' => 'Công nghệ thông tin',
+            ],
+            [
+                'MaKhoa'  => 'D510103',
+                'TenKhoa' => 'Công nghệ kỹ thuật xây dựng',
+            ],
+            [
+                'MaKhoa'  => 'D510301',
+                'TenKhoa' => 'Công nghệ kỹ thuật điện điện tử',
+            ],
+            [
+                'MaKhoa'  => 'D540101',
+                'TenKhoa' => 'Công nghệ thực phẩm',
+            ],
+            [
+                'MaKhoa'  => 'D580102',
+                'TenKhoa' => 'Kiến trúc',
+            ],
+            [
+                'MaKhoa'  => 'D720501',
+                'TenKhoa' => 'Điều dưỡng',
             ],
         ];
 
@@ -105,12 +135,12 @@ class KhoasTableSeeder extends Seeder
             [
                 'MaLop'  => 'CT14A1.11',
                 'TenLop' => 'CT14A1.11',
-                'MaKhoa' => '480201',
+                'MaKhoa' => 'D480201',
             ],
             [
                 'MaLop'  => 'CT14A1.12',
                 'TenLop' => 'CT14A1.12',
-                'MaKhoa' => '480201',
+                'MaKhoa' => 'D480201',
             ],
         ];
 
@@ -119,16 +149,16 @@ class KhoasTableSeeder extends Seeder
         }
 
         /* Sinh Viên */
-        for ($i = 33200; $i <= 33250; $i++) {
+        for ($i = 33200; $i <= 33300; $i++) {
             DB::table('sinh_viens')->insert([
-                'MaSV'      => $i,
-                'MaLop'     => 'CT14A1.11',
-                'GioiTinh'  => 1,
-                'NgaySinh'  => Carbon::createFromTimestamp(rand(Carbon::now()->subYears(21)->timestamp, Carbon::now()->subYears(22)->timestamp))->format('Y-m-d H:i:s'),
-                'NoiSinh'   => '',
-                'DanToc'    => '',
-                'DiaChi'    => '',
-                'DienThoai' => '',
+                'MaSV'       => $i,
+                'MaLop'      => 'CT14A1.11',
+                'GioiTinh'   => 1,
+                'NgaySinh'   => Carbon::createFromTimestamp(rand(Carbon::now()->subYears(21)->timestamp, Carbon::now()->subYears(22)->timestamp))->format('Y-m-d H:i:s'),
+                'DiaChi'     => '',
+                'DienThoai'  => '',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
         }
     }

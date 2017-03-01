@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Quản Lý Sinh Viên Ngoại Trú',
+    'name' => 'Laravel',
 
     /*
     |--------------------------------------------------------------------------
@@ -180,7 +180,6 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         Zizaco\Entrust\EntrustServiceProvider::class, // Role-based Permissions for Laravel 5
-        Creativeorange\Gravatar\GravatarServiceProvider::class // gravatar
 
     ],
 
@@ -230,7 +229,6 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'Entrust'      => Zizaco\Entrust\EntrustFacade::class, // Role-based Permissions for Laravel 5
-        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
 
     ],
 

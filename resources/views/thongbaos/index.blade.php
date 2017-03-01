@@ -1,13 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Thông tin sinh viên')
+@section('title', 'Thông Báo')
 
-@section('stylesheet')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.css') }}">
-@endsection
-
-@section('content-header', 'Sinh Viên')
+@section('content-header', 'Thông Báo')
 
 @section('content')
     @if (count($errors) > 0)
@@ -26,113 +21,107 @@
         </div>
     @endif
 
-    <div class="row" style="margin-bottom: 20px; ">
-        <div class="col-sm-2">
-            <a class="btn btn-info" href="{{ action('SinhVienController@create') }}">Thêm Sinh Viên</a>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">
-                        Danh Sách Khoa </h3>
-                </div>
-
-                <div class="box-body">
-                    <table id="data-table" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th>Tên</th>
-                            <th>ID</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <!-- <th>Dân Tộc</th> -->
-                            <th>Địa Chỉ</th>
-                            <!-- <th>CMND</th>
-                            <th>Ngày Cấp</th>
-                            <th>Nơi Cấp</th>
-                            <th>Khóa</th>
-                            <th>Ngành</th>
-                            <th>Bậc</th> -->
-                            <th>Lớp</th>
-                            <th>Điện Thoại</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach( $sinhviens as $sinhvien)
-                            <tr>
-                                <td>{{ $sinhvien->HoTen }}</td>
-                                <td>{{ $sinhvien->MaSV }}</td>
-                                <td>@if($sinhvien->GioiTinh == 1)
-                                        {{ 'Nam' }}
-                                    @else
-                                        {{ 'Nữ' }}
-                                    @endif
-                                </td>
-                                <td>{{ $sinhvien->NgaySinh }}</td>
-                                <!-- <td>{{ $sinhvien->DanToc }}</td> -->
-                                <td>{{ $sinhvien->DiaChi }}</td>
-                                <!-- <td>{{ $sinhvien->CMND }}</td>
-                                <td>{{ $sinhvien->NgayCap }}</td>
-                                <td>{{ $sinhvien->NoiCap }}</td>
-                                <td>{{ $sinhvien->Khoa }}</td>
-                                <td>{{ $sinhvien->Nganh }}</td>
-                                <td>{{ $sinhvien->Bac }}</td> -->
-                                <td>{{ $sinhvien->MaLop }}</td>
-                                <td>{{ $sinhvien->DienThoai }}</td>
-                                <td>{{ $sinhvien->Email }}</td>
-                                <td>
-                                    <a href="{{ action('SinhVienController@show', $sinhvien->id) }}" class="btn btn-info ripple">View Task</a>
-                                    <a href="{{ action('SinhVienController@edit', $sinhvien->id) }}" class="btn btn-primary ripple">Edit Task</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>Tên</th>
-                            <th>ID</th>
-                            <th>Giới Tính</th>
-                            <th>Ngày Sinh</th>
-                            <!-- <th>Dân Tộc</th> -->
-                            <th>Địa Chỉ</th>
-                            <!-- <th>CMND</th>
-                            <th>Ngày Cấp</th>
-                            <th>Nơi Cấp</th>
-                            <th>Khóa</th>
-                            <th>Ngành</th>
-                            <th>Bậc</th> -->
-                            <th>Lớp</th>
-                            <th>Điện Thoại</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
+    @if(Entrust::hasRole('admin'))
+        <div class="row" style="margin-bottom: 20px; ">
+            <div class="col-sm-2">
+                <a class="btn btn-primary ripple" href="{{ action('ThongBaoController@create') }}">Tạo thông báo</a>
             </div>
         </div>
+    @endif
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- The time line -->
+            <ul class="timeline">
+                <!-- timeline item -->
+                @foreach( $thongbaos as $thongbao )
+                    <li id="{{ $thongbao->id }}">
+                        <i class="fa fa-envelope bg-blue"></i>
+
+                        <div class="timeline-item">
+                            <span class="time"><i class="fa fa-clock-o"></i> {{ date('d/m/Y', strtotime($thongbao->created_at)) }}</span>
+
+                            <h3 class="timeline-header">{{ $thongbao->title }}</h3>
+
+                            <div class="timeline-body">
+                                {{ $thongbao->description }}
+                            </div>
+                            <div class="timeline-footer">
+                                <a href="{{ url('home/thongbaos', $thongbao->id) }}" class="btn btn-primary btn-xs">Chi Tiết</a>
+                                @if(Entrust::hasRole('admin'))
+                                    <a href="{{ route('thongbaos.edit',$thongbao->id) }}" class="btn btn-success btn-xs">Sửa</a>
+                                    <!-- Trigger the modal with a button -->
+                                    <button class="btn btn-danger btn-xs ripple" data-id="{{$thongbao->id}}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
+                                @endif
+                            </div>
+                        </div>
+                    </li>
+                    <!-- END timeline item -->
+                @endforeach
+
+                <!-- ./ -->
+                <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                </li>
+            </ul>
+        </div>
+        <!-- /.col -->
     </div>
 
+    <!-- Modal -->
+    <div id="modal-delete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Xác nhận xóa?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Thông báo sẽ bị xóa.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default ripple" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-google ripple" data-id="">Đồng ý</button>
+                </div>
+            </div>
+
+        </div>
 @endsection
 
 @section('script')
-    <!-- DataTables -->
-    <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+
     <script>
         $(function () {
-            $('#data-table').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true
+
+            $('#modal-delete').on('show.bs.modal', function (e) {
+                var data = $(e.relatedTarget).data();
+                $('.btn-google', this).data('id', data.id);
+            });
+
+            $('.modal-footer').on('click', '.btn-google', function (e) {
+                e.preventDefault();
+                $(".btn-google").prop('disabled', true);
+                var id = $(this).data('id');
+
+                $.ajax({
+                    type: "post",
+                    url: '{{ action('ThongBaoController@index') }}' + '/' + id,
+                    data: {
+                        '_method': 'delete',
+                        '_token': "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#' + id).remove();
+                        $('#modal-delete').modal('toggle');
+                        $(".btn-google").prop('disabled', false);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
             });
         });
     </script>

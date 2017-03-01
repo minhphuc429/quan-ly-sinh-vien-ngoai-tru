@@ -53,7 +53,7 @@
                             <div class="col-sm-10">
                                 <select id="makhoa" name="makhoa" class="form-control">
                                     @foreach($khoas as $khoa)
-                                        <option value="{{$khoa->MaKhoa}}">{{$khoa->TenKhoa}}</option>
+                                        <option value="{{$khoa->MaKhoa}}">{{$khoa->TenKhoa}} - {{$khoa->MaKhoa}}</option>
                                     @endforeach
                                 </select>
                             </div>

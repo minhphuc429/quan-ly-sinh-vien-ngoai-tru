@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NgoaiTru extends Model
 {
-    protected $table = 'ngoaitrus';
+    protected $table = 'ngoai_trus';
 
     public function sinhvien()
     {

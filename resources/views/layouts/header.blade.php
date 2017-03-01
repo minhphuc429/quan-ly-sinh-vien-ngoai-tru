@@ -22,13 +22,13 @@
                 @else
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ Gravatar::get(Auth::user()->email, 'default') }}" class="user-image" alt="User Image">
+                            <img src="http://cbgv.donga.edu.vn/QLSV/ANHSV/{{ Auth::user()->username }}.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                             <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i> </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{ Gravatar::get(Auth::user()->email, 'default') }}" class="img-circle" alt="User Image">
+                                <img src="http://cbgv.donga.edu.vn/QLSV/ANHSV/{{ Auth::user()->username }}.jpg" class="img-circle" alt="User Image">
                                 <p>
                                     {{ Auth::user()->name }}
                                     <small>{{ Auth::user()->email }}</small>
@@ -38,11 +38,11 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ action('ThongTinController@show', Auth::user()->id) }}" class="btn btn-default btn-flat ripple">Profile</a>
+                                    <a href="{{ action('ThongTinController@show', Auth::user()->id) }}" class="btn btn-default btn-flat ripple">Hồ Sơ</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat ripple" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">Đăng xuất</a>
+                                                         document.getElementById('logout-form').submit();">Đăng Xuất</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>

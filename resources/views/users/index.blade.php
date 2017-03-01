@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Khoa')
+@section('title', 'User')
 
 @section('stylesheet')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap.css') }}">
 @endsection
 
-@section('content-header', 'Khoa')
+@section('content-header', 'User')
 
 @section('content')
 
@@ -29,7 +29,7 @@
 
     <div class="row" style="margin-bottom: 20px; ">
         <div class="col-sm-2">
-            <a class="btn btn-primary ripple" href="{{ action('KhoaController@create') }}">Thêm Khoa</a>
+            <a class="btn btn-primary ripple" href="{{ action('UserController@create') }}">Thêm User</a>
         </div>
     </div>
 
@@ -37,8 +37,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">
-                        Danh Sách Khoa </h3>
+                    <h3 class="box-title">Danh Sách User</h3>
                 </div>
 
                 <div class="box-body">
@@ -46,22 +45,24 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Mã Khoa</th>
-                            <th>Tên Khoa</th>
+                            <th>Họ Tên</th>
+                            <th>User Name</th>
+                            <th>Email</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($khoas->all() as $khoa)
-                            <tr id="{{ $khoa->id }}">
-                                <td>{{ $khoa->id }}</td>
-                                <td>{{ $khoa->MaKhoa }}</td>
-                                <td>{{ $khoa->TenKhoa }} </td>
+                        @foreach($users->all() as $user)
+                            <tr id="{{ $user->id }}">
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->email }} </td>
                                 <td>
-                                    {{--<a href="{{ route('khoas.show', $khoa->id) }}" class="btn btn-info ripple">View</a>--}}
-                                    <a href="{{ route('khoas.edit', $khoa->id) }}" class="btn btn-success ripple">Sửa</a>
+                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-info ripple">Xem</a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success ripple">Sửa</a>
                                     <!-- Trigger the modal with a button -->
-                                    <button class="btn btn-danger ripple" data-id="{{$khoa->id}}" data-name="{{$khoa->TenKhoa}}" data-message="{{ $khoa->TenKhoa }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
+                                    <button class="btn btn-danger ripple" data-id="{{$user->id}}" data-name="{{$user->name}}" data-message="{{ $user->name }}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -69,8 +70,9 @@
                         <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Mã Khoa</th>
-                            <th>Tên Khoa</th>
+                            <th>Họ Tên</th>
+                            <th>User Name</th>
+                            <th>Email</th>
                             <th>Action</th>
                         </tr>
                         </tfoot>
@@ -91,7 +93,7 @@
                     <h4 class="modal-title">Xác nhận xóa?</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Những lớp trong Khoa "<b class="message"></b>" cũng sẽ bị xóa.</p>
+                    <p>User "<b class="message"></b>" sẽ bị xóa.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default ripple" data-dismiss="modal">Hủy</button>
@@ -131,7 +133,7 @@
 
                 $.ajax({
                     type: "post",
-                    url: '{{ action('KhoaController@index') }}' + '/' + id,
+                    url: '{{ action('UserController@index') }}' + '/' + id,
                     data: {
                         '_method': 'delete',
                         '_token': "{{ csrf_token() }}"

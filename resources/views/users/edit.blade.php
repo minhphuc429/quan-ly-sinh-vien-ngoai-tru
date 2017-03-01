@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Cập Nhật Khoa')
+@section('title', 'Cập Nhật User')
 
-@section('content-header', 'Khoa')
+@section('content-header', 'User')
 
 @section('content')
 
@@ -26,32 +26,72 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cập Nhật Thông Tin Khoa</h3>
+                    <h3 class="box-title">Cập Nhật User</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ action('KhoaController@update', $khoa->id) }}" method="POST">
+                <form class="form-horizontal" action="{{ action('UserController@update', $user->id) }}" method="POST">
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="CNTT" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
+                                <input type="text" class="form-control" name="name" value="@if(old('name')){{ old('name') }}@else{{ $user->name }}@endif">
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
+                            <label for="username" class="col-sm-2 control-label">User Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="CNTT" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
+                                <input type="text" class="form-control" name="username" value="@if(old('username')){{ old('username') }}@else{{ $user->username }}@endif">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" value="@if(old('email')){{ old('email') }}@else{{ $user->email }}@endif">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password" class="col-sm-2 control-label">Confirm Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="confirm-password" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="roles[]" class="col-sm-2 control-label">Role</label>
+
+                            <div class="col-sm-10">
+                                @foreach($roles as $role)
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="roles[]" value="{{ $role->id }}" @if($user->hasRole($role->name)) {!! 'checked' !!} @endif>
+                                            {{ $role->display_name }}
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ route('khoas.index') }}" class="btn btn-default">Trở lại</a>
+                        <a href="{{ route('users.index') }}" class="btn btn-default">Trở lại</a>
                         <button type="submit" class="btn btn-success pull-right">Cập Nhật</button>
                     </div>
                     <!-- /.box-footer -->
