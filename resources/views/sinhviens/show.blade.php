@@ -51,7 +51,7 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <b>Ngày Sinh:</b> <a class="pull-right">{{ $sinhvien->NgaySinh }}</a>
+                            <b>Ngày Sinh:</b> <a class="pull-right">{{ date('d/m/Y', strtotime($sinhvien->NgaySinh)) }}</a>
                         </li>
                         <li class="list-group-item">
                             <b>Địa Chỉ:</b> <a class="pull-right">{{ $sinhvien->DiaChi }}</a>

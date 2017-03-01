@@ -47,9 +47,9 @@
                                 {{ $thongbao->description }}
                             </div>
                             <div class="timeline-footer">
-                                <a href="{{ url('home/thongbaos', $thongbao->id) }}" class="btn btn-primary btn-xs">Read more</a>
+                                <a href="{{ url('home/thongbaos', $thongbao->id) }}" class="btn btn-primary btn-xs">Chi Tiết</a>
                                 @if(Entrust::hasRole('admin'))
-                                    <a href="{{ route('thongbaos.edit',$thongbao->id) }}" class="btn btn-success btn-xs">Edit</a>
+                                    <a href="{{ route('thongbaos.edit',$thongbao->id) }}" class="btn btn-success btn-xs">Sửa</a>
                                     <!-- Trigger the modal with a button -->
                                     <button class="btn btn-danger btn-xs ripple" data-id="{{$thongbao->id}}" data-toggle="modal" data-target="#modal-delete">Xóa</button>
                                 @endif

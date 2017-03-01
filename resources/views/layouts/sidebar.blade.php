@@ -26,15 +26,16 @@
         <ul class="sidebar-menu">
             <li class="header">Thông báo</li>
             <li class="{{ Request::segment(2) === 'thongbaos' ? 'active' : null }} treeview ripple">
-                <a href="{{ url('home/thongbaos') }}"> <i class="fa fa-flag-o"></i> <span>Thông tin thông báo</span> </a>
+                <a href="{{ url('home/thongbaos') }}"> <i class="fa fa-flag-o"></i> <span>Thông tin thông báo</span>
+                </a>
             </li>
-            <li class="header">Sinh Viên</li>
-            <li class="{{ Request::segment(2) === 'thongtins' ? 'active' : null }} treeview ripple">
-                <a href="#"> <i class="fa fa-user-md"></i> <span>Thông tin cá nhân</span> </a>
-            </li>
-            <li class="{{ Request::segment(2) === 'ngoaitrus' ? 'active' : null }} treeview ripple">
-                <a href="#"> <i class="fa fa-map-marker"></i> <span>Thông tin ngoại trú</span> </a>
-            </li>
+            @if(!Entrust::hasRole('admin'))
+                <li class="header">Sinh Viên</li>
+                <li class="{{ Request::segment(2) === 'thongtins' ? 'active' : null }} treeview ripple">
+                    <a href="{{ action('ThongTinController@show', Auth::user()->id) }}"> <i class="fa fa-user-md"></i>
+                        <span>Thông tin cá nhân</span> </a>
+                </li>
+            @endif
         </ul>
 
         @if(Entrust::hasRole('admin'))

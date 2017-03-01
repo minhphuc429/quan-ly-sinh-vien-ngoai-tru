@@ -38,11 +38,11 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ action('ThongTinController@show', Auth::user()->id) }}" class="btn btn-default btn-flat ripple">Profile</a>
+                                    <a href="{{ action('ThongTinController@show', Auth::user()->id) }}" class="btn btn-default btn-flat ripple">Hồ Sơ</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat ripple" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">Đăng xuất</a>
+                                                         document.getElementById('logout-form').submit();">Đăng Xuất</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>

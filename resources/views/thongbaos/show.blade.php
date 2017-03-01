@@ -41,7 +41,7 @@
                             <h3 class="timeline-header">{{ $thongbao->title }}</h3>
 
                             <div class="timeline-body">
-                                {{ $thongbao->content }}
+                                {{ $thongbao->noidung }}
                             </div>
                         </div>
                     </li>

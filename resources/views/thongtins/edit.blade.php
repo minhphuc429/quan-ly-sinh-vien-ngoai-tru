@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
-@section('stylesheet')
-    <!-- Bootstrap datepicker -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-datepicker.min.css') }}">
-@endsection
+@section('title', 'Cập Nhật Thông Tin')
+
+@section('content-header', 'Hồ Sơ Sinh Viên')
 
 @section('content')
 
@@ -31,135 +30,105 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ action('SinhVienController@update', $sinhvien->id) }}" method="POST">
+                <form class="form-horizontal" action="{{ action('ThongTinController@update', Auth::user()->id) }}" method="POST">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
                     <div class="box-body">
-                        <div class="form-group">
-                            <label for="tensv" class="col-md-2 control-label">Tên Sinh Viên</label>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="DienThoai" class="col-md-2 control-label">Điện Thoại</label>
 
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="tensv" name="tensv" placeholder="Nguyễn Minh Phúc" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->HoTen }}@endif">
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="DienThoai" placeholder="01272070675" value="@if(old('DienThoai')){{ old('DienThoai') }}@else{{ $sinhvien->DienThoai }}@endif">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="col-md-2 control-label">Email</label>
+
+                                <div class="col-md-10">
+                                    <input type="email" class="form-control" name="email" value="@if(old('email')){{ old('email') }}@else{{ Auth::user()->email }}@endif">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="HTChuNha" class="col-sm-2 control-label">Họ Tên Chủ Nhà</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="HTChuNha" value="@if(old('HTChuNha')){{ old('HTChuNha') }}@else{{ $ngoaitru->HTChuNha }}@endif">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SoNha" class="col-sm-2 control-label">Số Nhà</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="SoNha" value="@if(old('SoNha')){{ old('SoNha') }}@else{{ $ngoaitru->SoNha }}@endif">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Duong" class="col-sm-2 control-label">Đường</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="Duong" value="@if(old('Duong')){{ old('Duong') }}@else{{ $ngoaitru->Duong }}@endif">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="idsv" class="col-md-2 control-label">ID Sinh Viên</label>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ToDanPho" class="col-sm-2 control-label">Tổ Dân Phố</label>
 
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="idsv" name="idsv" placeholder="33205" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->MaSV }}@endif">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="ToDanPho" value="@if(old('ToDanPho')){{ old('ToDanPho') }}@else{{ $ngoaitru->ToDanPho }}@endif">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="gioitinh" class="col-md-2 control-label">Giới Tính</label>
+                            <div class="form-group">
+                                <label for="Phuong" class="col-sm-2 control-label">Phường</label>
 
-                            <div class="col-md-10 radio">
-                                <label> <input type="radio" name="gioitinh" id="nam" value="1" checked="checked">Nam </label>
-
-                                <label> <input type="radio" name="gioitinh" id="nu" value="0">Nữ </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="Phuong" value="@if(old('Phuong')){{ old('Phuong') }}@else{{ $ngoaitru->Phuong }}@endif">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="ngaysinh" class="col-md-2 control-label">Ngày Sinh</label>
+                            <div class="form-group">
+                                <label for="QuanHe" class="col-sm-2 control-label">Quan Hệ</label>
 
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="ngaysinh" name="ngaysinh" placeholder="" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->NgaySinh }}@endif">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="QuanHe" value="@if(old('QuanHe')){{ old('QuanHe') }}@else{{ $ngoaitru->QuanHe }}@endif">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="diachi" class="col-md-2 control-label">Địa Chỉ</label>
+                            <div class="form-group">
+                                <label for="DTChuNha" class="col-sm-2 control-label">SĐT Chủ Nhà</label>
 
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Quảng Nam" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->DiaChi }}@endif">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="DTChuNha" value="@if(old('DTChuNha')){{ old('DTChuNha') }}@else{{ $ngoaitru->DTChuNha }}@endif">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- <div class="form-group">
-                            <label for="dantoc" class="col-md-2 control-label">Dân Tộc</label>
+                            <div class="form-group">
+                                <label for="HTToTruong" class="col-sm-2 control-label">Họ Tên Tổ Trưởng</label>
 
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="dantoc" name="dantoc" placeholder="Kinh">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="HTToTruong" value="@if(old('HTToTruong')){{ old('HTToTruong') }}@else{{ $ngoaitru->HTToTruong }}@endif">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="cmnd" class="col-md-2 control-label">CMND</label>
+                            <div class="form-group">
+                                <label for="DTToTruong" class="col-sm-2 control-label">SĐT Tổ Trưởng</label>
 
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="cmnd" name="cmnd" placeholder="Nguyễn Minh Phúc">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="ngaycap" class="col-md-2 control-label">Ngày Cấp</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="ngaycap" name="ngaycap" placeholder="Nguyễn Minh Phúc">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="noicap" class="col-md-2 control-label">Nơi Cấp</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="noicap" name="noicap" placeholder="Quảng Nam">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="khoa" class="col-md-2 control-label">Khóa</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="khoa" name="khoa" placeholder="2014 - 2018">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nganh" class="col-md-2 control-label">Ngành</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="nganh" name="nganh" placeholder="Công nghệ phần mềm">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bac">Bậc</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="bac" name="bac" placeholder="Đại học chính quy">
-                            </div>
-                        </div> -->
-
-                        <div class="form-group">
-                            <label for="lop" class="col-md-2 control-label">Lớp</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="lop" name="lop" placeholder="CT14A.11" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->MaLop }}@endif">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="dt" class="col-md-2 control-label">Điện Thoại</label>
-
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="sdt" name="sdt" placeholder="01272070675" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->DienThoai }}@endif">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="col-md-2 control-label">Email</label>
-
-                            <div class="col-md-10">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="minhphuc429@gmail.com" value="@if(old('tensv')){{ old('tensv') }}@else{{ $sinhvien->Email }}@endif">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="DTToTruong" value="@if(old('DTToTruong')){{ old('DTToTruong') }}@else{{ $ngoaitru->DTToTruong }}@endif">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ action('SinhVienController@index') }}" class="btn btn-default">Trở lại</a>
+                        <a href="{{ action('ThongTinController@show', Auth::user()->id) }}" class="btn btn-default">Trở lại</a>
                         <button type="submit" class="btn btn-success pull-right">Cập Nhật</button>
                     </div>
                     <!-- /.box-footer -->

@@ -46,28 +46,30 @@ Route::group(['middleware' => 'role:admin'], function () {
         // Sinh Viên
         Route::resource('sinhviens', 'SinhVienController');
         Route::resource('khoas', 'KhoaController', ['except' => [
-            'show'
+            'show',
         ]]);
         Route::resource('lops', 'LopController', ['except' => [
-            'show'
+            'show',
         ]]);
         Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
-            'show'
+            'show',
         ]]);
 
         // User Manager
         Route::resource('roles', 'RoleController');
         Route::resource('permissions', 'PermissionController', ['except' => [
-            'show'
+            'show',
         ]]);
         Route::resource('users', 'UserController');
     });
 });
 
 Route::group(['prefix' => 'home'], function () {
-    Route::get('thongtins', 'ThongTinController@index')->name('home.thongtins');
+    Route::resource('thongtins', 'ThongTinController', ['except' => [
+        'index', 'create', 'store', 'destroy',
+    ]]);
 
     Route::resource('thongbaos', 'ThongBaoController');
 
-    Route::get('ngoaitrus', 'NgoaiTruController@index')->name('home.ngoaitrus');
+    Route::resource('ngoaitrus', 'NgoaiTruController');
 });
