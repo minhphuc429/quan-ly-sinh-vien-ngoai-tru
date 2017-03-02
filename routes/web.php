@@ -54,18 +54,22 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('khoas', 'KhoaController', ['except' => [
             'show',
         ]]);
+
         Route::resource('lops', 'LopController', ['except' => [
             'show',
         ]]);
+
         Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
             'show',
         ]]);
 
         // User Manager
         Route::resource('roles', 'RoleController');
+
         Route::resource('permissions', 'PermissionController', ['except' => [
             'show',
         ]]);
+
         Route::resource('users', 'UserController');
     });
 });
@@ -75,7 +79,11 @@ Route::group(['prefix' => 'home'], function () {
         'index', 'create', 'store', 'destroy',
     ]]);
 
-    Route::resource('thongbaos', 'ThongBaoController');
+    Route::resource('thongbaos', 'ThongBaoController', ['except' => [
+        'create', 'store', 'edit', 'update', 'destroy',
+    ]]);
 
-    Route::resource('ngoaitrus', 'NgoaiTruController');
+    Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
+        'index', 'create', 'store', 'destroy',
+    ]]);
 });
