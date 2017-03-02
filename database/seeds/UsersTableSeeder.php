@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);*/
 
-        for ($i = 33200; $i <= 33300; $i++) {
+        for ($i = 30000; $i <= 40000; $i++) {
             DB::table('users')->insert([
                 'name'       => str_random(10),
                 'username'   => $i,

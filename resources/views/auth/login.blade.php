@@ -7,15 +7,15 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="adminlte/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte/bootstrap/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="adminlte/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte/dist/css/AdminLTE.min.css') }}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="adminlte/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/iCheck/square/blue.css') }}">
 
     <style>
         body {
@@ -96,24 +96,31 @@
 
         <form action="{{ url('/login') }}" method="post">
             {{ csrf_field() }}
+
             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
-                <input type="text" name="username" class="form-control" placeholder="ID UDA" value="{{ old('username') }}" required autofocus>
+                <input type="text" name="username" class="form-control" placeholder="ID" value="{{ old('username') }}" required autofocus>
+
                 @if ($errors->has('username'))
                     <span class="help-block">
-            <strong>{{ $errors->first('email') }}</strong>
-        </span>
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
                 @endif
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+                <span class="fa fa-id-card-o form-control-feedback"></span>
             </div>
+
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+
                 @if ($errors->has('password'))
                     <span class="help-block">
-            <strong>{{ $errors->first('password') }}</strong>
-        </span>
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                <span class="fa fa-key form-control-feedback"></span>
             </div>
+
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
@@ -122,6 +129,7 @@
                     </div>
                 </div>
                 <!-- /.col -->
+
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
                 </div>
@@ -139,17 +147,18 @@
 <footer class="footer">
     <div class="container">
         <p class="text-muted">© 2017 Quản Lý Sinh Viên Ngoại Trú -
-            <a href="http://donga.edu.vn" target="_blank" style="color: #ffffff;">Trường Đại học Đông Á</a></p>
+            <a href="http://donga.edu.vn" target="_blank" style="color: #ffffff;">Trường Đại học Đông Á</a>
+        </p>
     </div>
 </footer>
 
 <!-- jQuery 2.2.3 -->
-<script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="{{ asset('adminlte/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="adminlte/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- iCheck -->
-<script src="adminlte/plugins/iCheck/icheck.min.js"></script>
-<script>
+{{--<script src="{{ asset('adminlte/plugins/iCheck/icheck.min.js') }}"></script>--}}
+{{--<script>
     $(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
@@ -157,6 +166,6 @@
             increaseArea: '20%' // optional
         });
     });
-</script>
+</script>--}}
 </body>
 </html>

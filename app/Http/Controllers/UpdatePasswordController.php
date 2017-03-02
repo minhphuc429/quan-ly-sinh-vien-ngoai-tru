@@ -39,7 +39,7 @@ class UpdatePasswordController extends Controller
         // Verifying A Password Against A Hash
         if (Hash::check($request->current_password, Auth::user()->getAuthPassword())) {
             $request->user()->fill([
-                'password' => Hash::make($request->current_password),
+                'password' => Hash::make($request->password),
             ])->save();
 
             return redirect()->back()->with('status', 'Cập Nhật Mật Khẩu Thành Công');
