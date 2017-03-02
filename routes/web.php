@@ -33,6 +33,12 @@ Route::post('password/email', ['as' => 'password.email', 'uses' => 'Auth\ForgotP
 Route::get('password/reset/{token}', ['as' => 'password.reset.token', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
 Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\ResetPasswordController@reset']);
 
+// Change Password Routes...
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('password/update', 'UpdatePasswordController@edit');
+    Route::post('password/update', 'UpdatePasswordController@update');
+});
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'role:admin'], function () {
