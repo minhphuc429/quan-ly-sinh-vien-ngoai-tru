@@ -98,7 +98,7 @@
                             <a class="pull-right"> @if( !$ngoaitru == null ) {{ $ngoaitru->Phuong }} @endif</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Phường:</b>
+                            <b>Quan Hệ:</b>
                             <a class="pull-right"> @if( !$ngoaitru == null ) {{ $ngoaitru->QuanHe }} @endif</a>
                         </li>
                         <li class="list-group-item">

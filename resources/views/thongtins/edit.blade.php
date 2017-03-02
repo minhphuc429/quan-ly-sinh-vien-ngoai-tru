@@ -36,41 +36,41 @@
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="DienThoai" class="col-md-2 control-label">Điện Thoại</label>
+                                <label for="DienThoai" class="col-md-2 col-sm-4 control-label">Điện Thoại</label>
 
-                                <div class="col-md-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="DienThoai" placeholder="01272070675" value="@if(old('DienThoai')){{ old('DienThoai') }}@else{{ $sinhvien->DienThoai }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="col-md-2 control-label">Email</label>
+                                <label for="email" class="col-md-2 col-sm-4 control-label">Email</label>
 
-                                <div class="col-md-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="email" class="form-control" name="email" value="@if(old('email')){{ old('email') }}@else{{ Auth::user()->email }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="HTChuNha" class="col-sm-2 control-label">Họ Tên Chủ Nhà</label>
+                                <label for="HTChuNha" class="col-md-2 col-sm-4 control-label">Họ Tên Chủ Nhà</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="HTChuNha" value="@if(old('HTChuNha')){{ old('HTChuNha') }}@else{{ $ngoaitru->HTChuNha }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="SoNha" class="col-sm-2 control-label">Số Nhà</label>
+                                <label for="SoNha" class="col-md-2 col-sm-4 control-label">Số Nhà</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="SoNha" value="@if(old('SoNha')){{ old('SoNha') }}@else{{ $ngoaitru->SoNha }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="Duong" class="col-sm-2 control-label">Đường</label>
+                                <label for="Duong" class="col-md-2 col-sm-4 control-label">Đường</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="Duong" value="@if(old('Duong')){{ old('Duong') }}@else{{ $ngoaitru->Duong }}@endif">
                                 </div>
                             </div>
@@ -78,49 +78,49 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="ToDanPho" class="col-sm-2 control-label">Tổ Dân Phố</label>
+                                <label for="ToDanPho" class="col-md-2 col-sm-4 control-label">Tổ Dân Phố</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="ToDanPho" value="@if(old('ToDanPho')){{ old('ToDanPho') }}@else{{ $ngoaitru->ToDanPho }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="Phuong" class="col-sm-2 control-label">Phường</label>
+                                <label for="Phuong" class="col-md-2 col-sm-4 control-label">Phường</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="Phuong" value="@if(old('Phuong')){{ old('Phuong') }}@else{{ $ngoaitru->Phuong }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="QuanHe" class="col-sm-2 control-label">Quan Hệ</label>
+                                <label for="QuanHe" class="col-md-2 col-sm-4 control-label">Quan Hệ</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="QuanHe" value="@if(old('QuanHe')){{ old('QuanHe') }}@else{{ $ngoaitru->QuanHe }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="DTChuNha" class="col-sm-2 control-label">SĐT Chủ Nhà</label>
+                                <label for="DTChuNha" class="col-md-2 col-sm-4 control-label">SĐT Chủ Nhà</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="DTChuNha" value="@if(old('DTChuNha')){{ old('DTChuNha') }}@else{{ $ngoaitru->DTChuNha }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="HTToTruong" class="col-sm-2 control-label">Họ Tên Tổ Trưởng</label>
+                                <label for="HTToTruong" class="col-md-2 col-sm-4 control-label">Họ Tên Tổ Trưởng</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="HTToTruong" value="@if(old('HTToTruong')){{ old('HTToTruong') }}@else{{ $ngoaitru->HTToTruong }}@endif">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="DTToTruong" class="col-sm-2 control-label">SĐT Tổ Trưởng</label>
+                                <label for="DTToTruong" class="col-md-2 col-sm-4 control-label">SĐT Tổ Trưởng</label>
 
-                                <div class="col-sm-10">
+                                <div class="col-md-10 col-sm-8">
                                     <input type="text" class="form-control" name="DTToTruong" value="@if(old('DTToTruong')){{ old('DTToTruong') }}@else{{ $ngoaitru->DTToTruong }}@endif">
                                 </div>
                             </div>
