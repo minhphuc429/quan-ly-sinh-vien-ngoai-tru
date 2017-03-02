@@ -159,8 +159,8 @@ class RoleController extends Controller
         DB::table("permission_role")->where("permission_role.role_id", $id)
             ->delete();
 
-        foreach ($request->permissions as $permissions) {
-            $role->attachPermission($permissions);
+        foreach ($request->permissions as $permission) {
+            $role->attachPermission($permission);
         }
 
         return redirect()->back()->with('status', 'Role Được Cập Nhật Thành Công');

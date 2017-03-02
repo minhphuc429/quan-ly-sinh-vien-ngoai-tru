@@ -20,9 +20,13 @@ class UsersTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);*/
 
-        for ($i = 30000; $i <= 40000; $i++) {
+        $i = 31450;
+        $limit = $i + 10;
+        $faker = Faker\Factory::create('vi_VN');
+
+        for ($i; $i <= $limit; $i++) {
             DB::table('users')->insert([
-                'name'       => str_random(10),
+                'name'       => $faker->firstName . ' ' . $faker->middleName . ' ' . $faker->lastName,
                 'username'   => $i,
                 'email'      => $i . '@donga.edu.vn',
                 'password'   => bcrypt('abc.12345'),

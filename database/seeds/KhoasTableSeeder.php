@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Khoa;
 use App\Lop;
-use App\SinhVien;
 
 class KhoasTableSeeder extends Seeder
 {
@@ -148,15 +147,42 @@ class KhoasTableSeeder extends Seeder
             Lop::create($lop);
         }
 
+        //////////////////////////////////******************************///////////////////////////////////////////////
+
+        $i = 31450;
+        $limit = $i + 10;
+        $faker = Faker\Factory::create('vi_VN');
+
         /* Sinh Viên */
-        for ($i = 33200; $i <= 33300; $i++) {
+        for ($i; $i <= $limit; $i++) {
             DB::table('sinh_viens')->insert([
                 'MaSV'       => $i,
                 'MaLop'      => 'CT14A1.11',
                 'GioiTinh'   => 1,
                 'NgaySinh'   => Carbon::createFromTimestamp(rand(Carbon::now()->subYears(21)->timestamp, Carbon::now()->subYears(22)->timestamp))->format('Y-m-d H:i:s'),
-                'DiaChi'     => '',
-                'DienThoai'  => '',
+                'DiaChi'     => $faker->province,
+                'DienThoai'  => $faker->e164PhoneNumber,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+        }
+
+        $i = 31450;
+        $limit = $i + 10;
+
+        /* Ngoại Trú */
+        for ($i; $i <= $limit; $i++) {
+            DB::table('ngoai_trus')->insert([
+                'MaSV'       => $i,
+                'HTChuNha'   => $faker->name,
+                'DTChuNha'   => $faker->e164PhoneNumber,
+                'SoNha'      => $faker->buildingNumber,
+                'Duong'      => $faker->streetName,
+                'ToDanPho'   => $faker->hamletName,
+                'Phuong'     => $faker->wardPrefix,
+                'QuanHe'     => $faker->title,
+                'HTToTruong' => $faker->name,
+                'DTToTruong' => $faker->e164PhoneNumber,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);

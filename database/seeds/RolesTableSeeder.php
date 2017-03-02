@@ -14,25 +14,6 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = new Role();
-        $admin->name = 'admin';
-        $admin->display_name = 'User Administrator'; // optional
-        $admin->description = 'Người dùng được phép quản lý và chỉnh sửa người dùng khác'; // optional
-        $admin->save();
-
-        $sinhvien = new Role();
-        $sinhvien->name = 'student';
-        $sinhvien->display_name = 'User Sinh Viên'; // optional
-        $sinhvien->description = 'Người dùng được phép cập nhật thông tin cá nhân, thông tin  ngoại trú'; // optional
-        $sinhvien->save();
-
-        // role attach alias
-        $user = User::where('email', '=', '31456@donga.edu.vn')->first();
-        $user->attachRole($admin); // parameter can be an Role object, array, or id
-
-        $user = User::all();
-        $user->attachRole($sinhvien);
-
         $permission = [
             [
                 'name'         => 'role-list',
@@ -53,6 +34,26 @@ class RolesTableSeeder extends Seeder
                 'name'         => 'role-delete',
                 'display_name' => 'Delete Role',
                 'description'  => 'Delete Role',
+            ],
+            [
+                'name'         => 'user-list',
+                'display_name' => 'Display User Listing',
+                'description'  => 'See only Listing Of User',
+            ],
+            [
+                'name'         => 'user-create',
+                'display_name' => 'Create User',
+                'description'  => 'Create New User',
+            ],
+            [
+                'name'         => 'user-edit',
+                'display_name' => 'Edit User',
+                'description'  => 'Edit User',
+            ],
+            [
+                'name'         => 'user-delete',
+                'display_name' => 'Delete User',
+                'description'  => 'Delete User',
             ],
             [
                 'name'         => 'student-list',
@@ -98,6 +99,33 @@ class RolesTableSeeder extends Seeder
 
         foreach ($permission as $key => $value) {
             Permission::create($value);
+        }
+
+        $admin = new Role();
+        $admin->name = 'admin';
+        $admin->display_name = 'Administrator'; // optional
+        $admin->description = 'Người dùng được phép quản lý và chỉnh sửa người dùng khác'; // optional
+        $admin->save();
+
+        $sinhvien = new Role();
+        $sinhvien->name = 'student';
+        $sinhvien->display_name = 'Sinh Viên'; // optional
+        $sinhvien->description = 'Người dùng được phép cập nhật thông tin cá nhân, thông tin  ngoại trú'; // optional
+        $sinhvien->save();
+
+        // attach Permissions to role
+        $admin->attachPermissions([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+
+        $sinhvien->attachPermissions([7, 11, 15]);
+
+        // role attach alias
+        $user = User::where('email', '=', '31456@donga.edu.vn')->first();
+        $user->attachRole($admin); // parameter can be an Role object, array, or id
+
+        $users = User::all();
+
+        foreach ($users as $key => $value) {
+            $value->attachRole($sinhvien);
         }
     }
 }
