@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Khoa;
+use App\Lop;
+use App\SinhVien;
+use App\NgoaiTru;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $khoa = Khoa::all()->count();
+        $lop = Lop::all()->count();
+        $sinhvien = SinhVien::all()->count();
+        $ngoaitru = NgoaiTru::all()->count();
+
+        return view('home')->with([
+            'khoa'     => $khoa,
+            'lop'      => $lop,
+            'sinhvien' => $sinhvien,
+            'ngoaitru' => $ngoaitru,
+        ]);
     }
 }
