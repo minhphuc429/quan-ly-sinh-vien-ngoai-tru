@@ -123,8 +123,7 @@
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
-                        {{--<label> <input type="checkbox"> Duy trì trạng thái đăng nhập </label>--}}
-                        <a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>
+                        <label> <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Duy trì trạng thái đăng nhập </label><br>
                     </div>
                 </div>
                 <!-- /.col -->
@@ -136,8 +135,7 @@
             </div>
         </form>
 
-        {{--<a href="{{ url('/password/reset') }}">Quên tài khoản?</a><br>--}}
-
+        <a href="{{ url('/password/reset') }}">Quên mật khẩu?</a>
     </div>
     <!-- /.login-box-body -->
 </div>
@@ -156,8 +154,8 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- iCheck -->
-{{--<script src="{{ asset('adminlte/plugins/iCheck/icheck.min.js') }}"></script>--}}
-{{--<script>
+<script src="{{ asset('adminlte/plugins/iCheck/icheck.min.js') }}"></script>
+<script>
     $(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
@@ -165,6 +163,6 @@
             increaseArea: '20%' // optional
         });
     });
-</script>--}}
+</script>
 </body>
 </html>
