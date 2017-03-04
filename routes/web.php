@@ -16,7 +16,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-/*Auth::routes();*/
+Auth::routes();
 
 // Login Routes...
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
@@ -24,8 +24,8 @@ Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@logi
 Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
 // Registration Routes...
-/*Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
-Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);*/
+Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
+Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);
 
 // Password Reset Routes...
 Route::get('password/reset', ['as' => 'password.reset', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
@@ -75,17 +75,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['prefix' => 'home'], function () {
-        Route::resource('thongtins', 'ThongTinController', ['except' => [
-            'index', 'create', 'store', 'destroy',
-        ]]);
 
-        Route::resource('thongbaos', 'ThongBaoController', ['except' => [
-            'create', 'store', 'edit', 'update', 'destroy',
-        ]]);
+});
+Route::group(['prefix' => 'home'], function () {
+    Route::resource('thongtins', 'ThongTinController', ['except' => [
+        'index', 'create', 'store', 'destroy',
+    ]]);
 
-        Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
-            'index', 'create', 'store', 'destroy',
-        ]]);
-    });
+    Route::resource('thongbaos', 'ThongBaoController', ['except' => [
+        'create', 'store', 'edit', 'update', 'destroy',
+    ]]);
+
+    Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
+        'index', 'create', 'store', 'destroy',
+    ]]);
 });

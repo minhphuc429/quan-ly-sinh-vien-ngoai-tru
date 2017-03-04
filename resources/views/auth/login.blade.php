@@ -19,7 +19,7 @@
 
     <style>
         body {
-            font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: #2f4050;
             font-size: 13px;
             color: black;
@@ -74,14 +74,13 @@
 <nav class="navbar navbar-default navbar-fixed">
     <div class="container">
         <div class="row">
-            {{--<div>
-                <img src="{{ asset('images/logo.png') }}" --}}{{--class="img-responsive"--}}{{-- alt="" --}}{{--style="margin: 0 auto"--}}{{-->
-                <img src="{{ asset('images/donga.png') }}" height="" width="">
-            </div>--}}
-            <div class="col-md-7" style="text-align:center">
-                <img src="{{ asset('images/da.png') }}" height="" width="">
+            <div class="col-md-2 col-md-offset-2">
+                <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="center-block" height="115px">
             </div>
-            <div class="col-md-1"></div>
+
+            <div class="col-md-4 col-md-offset-1">
+                <img src="{{ asset('images/dong-a.svg') }}" alt="Đại Học Đông Á" class="center-block" height="115px">
+            </div>
         </div>
     </div>
 </nav>
