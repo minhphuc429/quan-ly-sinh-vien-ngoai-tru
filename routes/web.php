@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Login Routes...
+/*// Login Routes...
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
 Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
@@ -30,13 +30,7 @@ Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterContro
 Route::get('password/reset', ['as' => 'password.reset', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
 Route::post('password/email', ['as' => 'password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
 Route::get('password/reset/{token}', ['as' => 'password.reset.token', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
-Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\ResetPasswordController@reset']);
-
-// Change Password Routes...
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('password/update', 'UpdatePasswordController@edit');
-    Route::post('password/update', 'UpdatePasswordController@update');
-});
+Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\ResetPasswordController@reset']);*/
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
@@ -74,6 +68,10 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+
+    // Change Password Routes...
+    Route::get('password/update', 'UpdatePasswordController@edit');
+    Route::post('password/update', 'UpdatePasswordController@update');
 
     Route::group(['prefix' => 'home'], function () {
 

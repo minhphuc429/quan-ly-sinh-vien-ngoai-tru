@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="{{ asset('adminlte/bootstrap/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <!-- Pure CSS ripple effect -->
+    <link rel="stylesheet" href="{{ asset('assets/css/ripple.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/AdminLTE.min.css') }}">
     <!-- iCheck -->
@@ -90,13 +92,13 @@
         <a href="{{ url('/') }}"><b>Đại Học Đông Á</b></a>
     </div>
     <!-- /.login-logo -->
-    <div class="login-box-body">
+    <div class="login-box-body animated bounceIn">
         <p class="login-box-msg">Đăng nhập hệ thống</p>
 
         <form action="{{ url('/login') }}" method="post">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} has-feedback">
+            <div class="form-group{{ $errors->has('username') ? ' has-error animated shake' : '' }} has-feedback">
                 <input type="text" name="username" class="form-control" placeholder="ID" value="{{ old('username') }}" required autofocus>
 
                 @if ($errors->has('username'))
@@ -108,7 +110,7 @@
                 <span class="fa fa-id-card-o form-control-feedback"></span>
             </div>
 
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
+            <div class="form-group{{ $errors->has('password') ? ' has-error animated shake' : '' }} has-feedback">
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 
                 @if ($errors->has('password'))
@@ -121,21 +123,21 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-8">
+                <div class="col-xs-7">
                     <div class="checkbox icheck">
-                        <label> <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Duy trì trạng thái đăng nhập </label><br>
+                        <label> <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me </label><br>
                     </div>
                 </div>
                 <!-- /.col -->
 
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+                <div class="col-xs-5">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat ripple">Đăng Nhập</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
-        <a href="{{ url('/password/reset') }}">Quên mật khẩu?</a>
+        <a href="{{ url('/password/reset') }}" class="ripple">Quên mật khẩu?</a>
     </div>
     <!-- /.login-box-body -->
 </div>
