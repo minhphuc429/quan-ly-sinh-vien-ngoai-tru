@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    /*return view('welcome');*/
     return redirect('/login');
 });
 
@@ -39,11 +38,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('password/update', 'UpdatePasswordController@update');
 });
 
-Route::get('/home', 'HomeController@index');
-
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
     Route::group(['prefix' => 'admin'], function () {
+
+        Route::get('/home', 'HomeController@index');
 
         Route::resource('thongbaos', 'ThongBaoController');
 
@@ -76,17 +75,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
-});
-Route::group(['prefix' => 'home'], function () {
-    Route::resource('thongtins', 'ThongTinController', ['except' => [
-        'index', 'create', 'store', 'destroy',
-    ]]);
+    Route::group(['prefix' => 'home'], function () {
 
-    Route::resource('thongbaos', 'ThongBaoController', ['except' => [
-        'create', 'store', 'edit', 'update', 'destroy',
-    ]]);
+        Route::resource('thongtins', 'ThongTinController', ['except' => [
+            'index', 'create', 'store', 'destroy',
+        ]]);
 
-    Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
-        'index', 'create', 'store', 'destroy',
-    ]]);
+        Route::resource('thongbaos', 'ThongBaoController', ['except' => [
+            'create', 'store', 'edit', 'update', 'destroy',
+        ]]);
+
+        Route::resource('ngoaitrus', 'NgoaiTruController', ['except' => [
+            'index', 'create', 'store', 'destroy',
+        ]]);
+    });
 });

@@ -26,7 +26,7 @@
         <ul class="sidebar-menu">
             <li class="header">Thông báo</li>
             <li class="{{ Request::segment(2) === 'thongbaos' ? 'active' : null }} treeview ripple">
-                <a href="{{ url('home/thongbaos') }}"> <i class="fa fa-flag-o"></i> <span>Thông tin thông báo</span>
+                <a href="{{ action('ThongBaoController@index') }}"> <i class="fa fa-flag-o"></i> <span>Thông tin thông báo</span>
                 </a>
             </li>
             @if(!Entrust::hasRole('admin'))
@@ -42,7 +42,7 @@
 
             <ul class="sidebar-menu">
                 <li class="header">Quản Lý Sinh Viên</li>
-                <li class="{{ Request::segment(1) === 'home' ? 'active' : null }} treeview ripple">
+                <li class="{{ Request::segment(2) === 'home' ? 'active' : null }} treeview ripple">
                     <a href="{{ action('HomeController@index') }}"> <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span> </a>
                 </li>
