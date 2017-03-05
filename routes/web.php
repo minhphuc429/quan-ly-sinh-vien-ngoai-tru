@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/home', function () {
+    return redirect('/home/thongbaos');
+});
+
 Auth::routes();
 
 /*// Login Routes...
