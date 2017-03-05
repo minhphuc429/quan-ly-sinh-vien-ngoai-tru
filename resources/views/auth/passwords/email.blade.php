@@ -79,7 +79,7 @@
             </div>
 
             <div class="col-md-4 col-md-offset-1">
-                <img src="{{ asset('images/dong-a.svg') }}" alt="Đại Học Đông Á" class="center-block" height="115px">
+                <img src="{{ asset('images/dong-a.svg') }}" alt="Đại Học Đông Á" class="center-block" height="115px" width="100%">
             </div>
         </div>
     </div>
