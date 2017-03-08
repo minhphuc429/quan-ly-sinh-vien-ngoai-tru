@@ -70,9 +70,7 @@ class UserController extends Controller
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
-        foreach ($request->input('roles') as $key => $value) {
-            $user->attachRole($value);
-        }
+        $user->attachRole($request->roles);
 
         return redirect()->back()->with('status', 'Thêm User Thành Công');
     }
@@ -149,9 +147,7 @@ class UserController extends Controller
         $user->update($input);
         DB::table('role_user')->where('user_id', $id)->delete();
 
-        foreach ($request->input('roles') as $key => $value) {
-            $user->attachRole($value);
-        }
+        $user->attachRole($request->roles);
 
         return redirect()->back()->with('status', 'Cập Nhật User Thành Công');
     }

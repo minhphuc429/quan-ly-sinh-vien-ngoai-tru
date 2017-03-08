@@ -79,9 +79,9 @@
 
                             <div class="col-sm-10">
                                 @foreach($roles as $role)
-                                    <div class="checkbox">
+                                    <div class="radio">
                                         <label>
-                                            <input type="checkbox" name="roles[]" value="{{ $role->id }}" @if($user->hasRole($role->name)) {!! 'checked' !!} @endif>
+                                            <input type="radio" name="roles" value="{{ $role->id }}" @if($user->hasRole($role->name)) {!! 'checked' !!} @endif>
                                             {{ $role->display_name }}
                                         </label>
                                     </div>

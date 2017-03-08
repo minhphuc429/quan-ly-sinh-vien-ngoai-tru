@@ -67,10 +67,10 @@
                             <label for="GioiTinh" class="col-md-2 control-label">Giới Tính</label>
 
                             <div class="col-md-10 radio">
-                                <label> <input type="radio" name="GioiTinh" id="male" value="1"
+                                <label> <input type="radio" name="GioiTinh" value="1"
                                     @if ( $sinhvien->GioiTinh ) {!! 'checked' !!} @endif>Nam </label>
 
-                                <label> <input type="radio" name="GioiTinh" id="female" value="0" @if ( !$sinhvien->GioiTinh ) {!! 'checked' !!} @endif>Nữ </label>
+                                <label> <input type="radio" name="GioiTinh" value="0" @if ( !$sinhvien->GioiTinh ) {!! 'checked' !!} @endif>Nữ </label>
                             </div>
                         </div>
 

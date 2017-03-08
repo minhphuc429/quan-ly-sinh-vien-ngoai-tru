@@ -17,9 +17,7 @@ class CreateLopsTable extends Migration
             $table->increments('id');
             $table->string('MaLop')->unique();
             $table->string('TenLop');
-            $table->string('MaKhoa');
-
-            $table->index('MaKhoa');
+            $table->string('MaKhoa')->index();
 
             $table->foreign('MaKhoa')->references('MaKhoa')->on('khoas')
                 ->onUpdate('cascade')->onDelete('cascade');

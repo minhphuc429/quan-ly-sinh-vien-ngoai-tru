@@ -74,12 +74,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="roles[]" class="col-sm-2 control-label">Role</label>
+                            <label for="roles" class="col-sm-2 control-label">Role</label>
 
                             <div class="col-sm-10">
                                 @foreach($roles as $role)
-                                    <div class="checkbox">
-                                        <label> <input type="checkbox" name="roles[]" value="{{ $role->id }}" checked>
+                                    <div class="radio">
+                                        <label> <input type="radio" name="roles" value="{{ $role->id }}">
                                             {{ $role->display_name }}
                                         </label>
                                     </div>

@@ -37,7 +37,7 @@
                         <label for="malop" class="col-md-2 control-label">Mã Lớp</label>
 
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="malop" name="malop" placeholder="" value="@if(old('malop')){{ old('malop') }}@else{{ $lop->MaLop }}@endif">
+                            <input type="text" class="form-control" name="malop" placeholder="" value="@if(old('malop')){{ old('malop') }}@else{{ $lop->MaLop }}@endif">
                         </div>
                     </div>
 
@@ -45,7 +45,7 @@
                         <label for="tenlop" class="col-md-2 control-label">Tên Lớp</label>
 
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="tenlop" name="tenlop" placeholder="" value="@if(old('tenlop')){{ old('tenlop') }}@else{{ $lop->TenLop }}@endif">
+                            <input type="text" class="form-control" name="tenlop" placeholder="" value="@if(old('tenlop')){{ old('tenlop') }}@else{{ $lop->TenLop }}@endif">
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@
                         <label for="makhoa" class="col-md-2 control-label">Mã Khoa</label>
 
                         <div class="col-md-10">
-                            <select id="makhoa" name="makhoa" class="form-control">
+                            <select name="makhoa" class="form-control">
                                 @foreach($khoas as $khoa)
                                     <option value="{{$khoa->MaKhoa}}">{{$khoa->TenKhoa}} - {{$khoa->MaKhoa}}</option>
                                 @endforeach

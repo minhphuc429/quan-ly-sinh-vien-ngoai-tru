@@ -38,7 +38,7 @@
                             <label for="name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" name="name" value="@if(old('name')){{ old('name') }}@else{{ $role->name }}@endif">
+                                <input type="text" class="form-control" name="name" value="@if(old('name')){{ old('name') }}@else{{ $role->name }}@endif">
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                             <label for="description" class="col-sm-2 control-label">Description</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="description" name="description" value="@if(old('description')){{ old('description') }}@else{{ $role->description }}@endif">
+                                <input type="text" class="form-control" name="description" value="@if(old('description')){{ old('description') }}@else{{ $role->description }}@endif">
                             </div>
                         </div>
 

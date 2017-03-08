@@ -111,7 +111,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error animated shake' : '' }} has-feedback">
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
 
                 @if ($errors->has('password'))
                     <span class="help-block">

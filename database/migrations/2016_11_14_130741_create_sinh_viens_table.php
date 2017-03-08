@@ -16,15 +16,13 @@ class CreateSinhViensTable extends Migration
         Schema::create('sinh_viens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('MaSV')->unique();
-            $table->string('MaLop');
+            $table->string('MaLop')->index();
             $table->boolean('GioiTinh')->nullable();
             $table->date('NgaySinh')->nullable();
             $table->string('DiaChi')->nullable();
             $table->string('DienThoai')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
-            $table->index('MaLop');
 
             $table->foreign('MaLop')->references('MaLop')->on('lops')
                 ->onUpdate('cascade')->onDelete('cascade');

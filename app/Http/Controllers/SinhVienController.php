@@ -31,9 +31,13 @@ class SinhVienController extends Controller
      */
     public function create()
     {
+        $users = User::all();
         $lops = Lop::all();
 
-        return view('sinhviens.create')->with('lops', $lops);
+        return view('sinhviens.create')->with([
+            'lops'  => $lops,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -45,25 +49,21 @@ class SinhVienController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'tensv'    => 'required|max:255',
-            'idsv'     => 'required',
-            'gioitinh' => 'required',
-            'ngaysinh' => 'required',
-            'diachi'   => 'required',
-            'malop'    => 'required',
-            'sdt'      => 'required',
-            'email'    => 'required',
+            'MaSV'      => 'required',
+            'MaLop'     => 'required',
+            'GioiTinh'  => 'required',
+            'NgaySinh'  => 'required',
+            'DiaChi'    => 'required',
+            'DienThoai' => 'required',
         ];
 
         $messages = [
-            'tensv.required'    => 'Chưa nhập tên',
-            'idsv.required'     => 'Chưa nhập ID sinh viên',
-            'gioitinh.required' => 'Chưa chọn giới tính',
-            'ngaysinh.required' => 'Chưa nhập ngày sinh',
-            'diachi.required'   => 'Chưa nhập địa chỉ',
-            'malop.required'    => 'Chưa nhập lớp',
-            'sdt.required'      => 'Chưa nhập SĐT',
-            'email.required'    => 'Chưa nhập email',
+            'MaSV.required'      => 'Chưa nhập ID sinh viên',
+            'GioiTinh.required'  => 'Chưa chọn giới tính',
+            'NgaySinh.required'  => 'Chưa nhập ngày sinh',
+            'DiaChi.required'    => 'Chưa nhập địa chỉ',
+            'MaLop.required'     => 'Chưa nhập lớp',
+            'DienThoai.required' => 'Chưa nhập SĐT',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -74,18 +74,20 @@ class SinhVienController extends Controller
                 ->withInput();
         }
 
-        $date = Carbon::createFromFormat('d/m/Y', $request->ngaysinh);
+        $sinhvien = SinhVien::where('MaSV', $request->MaSV)->first();
+        if (!$sinhvien == null)
+            return redirect()->back()->with('status', 'Sinh viên đã thông tin sẵn trước đó');
+
+        $date = Carbon::createFromFormat('d/m/Y', $request->NgaySinh);
 
         $sinhvien = new SinhVien;
 
-        $sinhvien->HoTen = $request->tensv;
-        $sinhvien->MaSV = $request->idsv;
-        $sinhvien->GioiTinh = $request->gioitinh;
+        $sinhvien->MaSV = $request->MaSV;
+        $sinhvien->GioiTinh = $request->GioiTinh;
         $sinhvien->NgaySinh = $date->toDateString();
-        $sinhvien->DiaChi = $request->diachi;
-        $sinhvien->MaLop = $request->malop;
-        $sinhvien->DienThoai = $request->sdt;
-        $sinhvien->Email = $request->email;
+        $sinhvien->DiaChi = $request->DiaChi;
+        $sinhvien->MaLop = $request->MaLop;
+        $sinhvien->DienThoai = $request->DienThoai;
         $sinhvien->save();
 
         return redirect()->back()->with('status', 'Thêm Thông Tin Sinh Viên Thành Công');

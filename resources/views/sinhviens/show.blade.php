@@ -107,7 +107,7 @@
                         </li>
                     </ul>
 
-                    <a href="{{ action('RoleController@index') }}" class="btn btn-primary pull-right ripple"><b>Back</b></a>
+                    <a href="{{ action('SinhVienController@index') }}" class="btn btn-primary pull-right ripple"><b>Back</b></a>
                 </div>
                 <!-- /.box -->
             </div>

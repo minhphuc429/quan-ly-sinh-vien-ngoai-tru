@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('stylesheet')
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/select2.min.css') }}">
+@endsection
+
 @section('title', 'Thêm Lớp')
 
 @section('content-header', 'Lớp')
@@ -37,21 +42,21 @@
                             <label for="malop" class="col-md-2 control-label">Mã Lớp</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="malop" name="malop" placeholder="">
+                                <input type="text" class="form-control" name="malop" placeholder="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tenlop" class="col-md-2 control-label">Tên Lớp</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenlop" name="tenlop" placeholder="">
+                                <input type="text" class="form-control" name="tenlop" placeholder="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="makhoa" class="col-md-2 control-label">Mã Khoa</label>
 
                             <div class="col-sm-10">
-                                <select id="makhoa" name="makhoa" class="form-control">
+                                <select name="makhoa" class="form-control select2">
                                     @foreach($khoas as $khoa)
                                         <option value="{{$khoa->MaKhoa}}">{{$khoa->TenKhoa}} - {{$khoa->MaKhoa}}</option>
                                     @endforeach
@@ -69,4 +74,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <!-- Select2 -->
+    <script src="{{ asset('adminlte/plugins/select2/select2.full.min.js') }}"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+        });
+    </script>
 @endsection

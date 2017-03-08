@@ -38,14 +38,14 @@
                             <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="CNTT" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
+                                <input type="text" class="form-control" name="makhoa" placeholder="CNTT" value="@if(old('makhoa')){{ old('makhoa') }}@else{{ $khoa->MaKhoa }}@endif">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="CNTT" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
+                                <input type="text" class="form-control" name="tenkhoa" placeholder="CNTT" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@else{{ $khoa->TenKhoa }}@endif">
                             </div>
                         </div>
                     </div>

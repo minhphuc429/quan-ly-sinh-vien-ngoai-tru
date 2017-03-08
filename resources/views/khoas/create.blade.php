@@ -37,14 +37,14 @@
                             <label for="makhoa" class="col-sm-2 control-label">Mã Khoa</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="makhoa" name="makhoa" placeholder="480201" value="@if(old('makhoa')){{ old('makhoa') }}@endif">
+                                <input type="text" class="form-control"name="makhoa" value="@if(old('makhoa')){{ old('makhoa') }}@endif">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tenkhoa" class="col-sm-2 control-label">Tên Khoa</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tenkhoa" name="tenkhoa" placeholder="Công nghệ thông tin" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@endif">
+                                <input type="text" class="form-control" name="tenkhoa" value="@if(old('tenkhoa')){{ old('tenkhoa') }}@endif">
                             </div>
                         </div>
                     </div>

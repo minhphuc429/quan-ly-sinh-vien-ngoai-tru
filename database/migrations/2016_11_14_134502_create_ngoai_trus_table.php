@@ -16,15 +16,15 @@ class CreateNgoaiTrusTable extends Migration
         Schema::create('ngoai_trus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('MaSV')->unique();
-            $table->string('HTChuNha');
-            $table->string('SoNha');
-            $table->string('Duong');
-            $table->string('ToDanPho');
-            $table->string('Phuong');
-            $table->string('QuanHe');
-            $table->string('DTChuNha');
-            $table->string('HTToTruong');
-            $table->string('DTToTruong');
+            $table->string('HTChuNha')->nullable()->default('');
+            $table->string('SoNha')->nullable()->default('');
+            $table->string('Duong')->nullable()->default('');
+            $table->string('ToDanPho')->nullable()->default('');
+            $table->string('Phuong')->nullable()->default('');
+            $table->string('QuanHe')->nullable()->default('');
+            $table->string('DTChuNha')->nullable()->default('');
+            $table->string('HTToTruong')->nullable()->default('');
+            $table->string('DTToTruong')->nullable()->default('');
 
             $table->timestamps();
 

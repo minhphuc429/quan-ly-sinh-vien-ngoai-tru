@@ -53,6 +53,21 @@ class ThongTinController extends Controller
         $sinhvien = SinhVien::where('MaSV', $masv)->first();
         $ngoaitru = NgoaiTru::where('MaSV', $masv)->first();
 
+        if ($ngoaitru === null) {
+            $ngoaitru = new NgoaiTru();
+            $ngoaitru->MaSV = $masv;
+            $ngoaitru->HTChuNha = '';
+            $ngoaitru->DTChuNha = '';
+            $ngoaitru->SoNha = '';
+            $ngoaitru->Duong = '';
+            $ngoaitru->ToDanPho = '';
+            $ngoaitru->Phuong = '';
+            $ngoaitru->QuanHe = '';
+            $ngoaitru->HTToTruong = '';
+            $ngoaitru->DTToTruong = '';
+            $ngoaitru->save();
+        }
+
         return view('thongtins.show')->with([
             'id'       => $id,
             'sinhvien' => $sinhvien,
@@ -71,7 +86,7 @@ class ThongTinController extends Controller
         $masv = User::findOrFail($id)->username;
         $sinhvien = SinhVien::where('MaSV', $masv)->first();
         $ngoaitru = NgoaiTru::where('MaSV', $masv)->first();
-        //return var_dump($ngoaitru);
+
         if ($ngoaitru === null) {
             $ngoaitru = new NgoaiTru();
             $ngoaitru->MaSV = $masv;
@@ -86,8 +101,6 @@ class ThongTinController extends Controller
             $ngoaitru->DTToTruong = '';
             $ngoaitru->save();
         }
-
-        //return var_dump($ngoaitru);
 
         return view('thongtins.edit')->with([
             'id'       => $id,
